@@ -1,0 +1,32 @@
+PC1>
+PC1> ping 192.168.10.2 -c 30 -i 1000 -w 500
+84 bytes from 192.168.10.2 icmp_seq=1 ttl=64 time=0.532 ms
+84 bytes from 192.168.10.2 icmp_seq=2 ttl=64 time=0.605 ms
+84 bytes from 192.168.10.2 icmp_seq=3 ttl=64 time=0.631 ms
+84 bytes from 192.168.10.2 icmp_seq=4 ttl=64 time=0.811 ms
+84 bytes from 192.168.10.2 icmp_seq=5 ttl=64 time=0.595 ms
+192.168.10.2 icmp_seq=6 timeout
+192.168.10.2 icmp_seq=7 timeout
+192.168.10.2 icmp_seq=8 timeout
+192.168.10.2 icmp_seq=9 timeout
+192.168.10.2 icmp_seq=10 timeout
+192.168.10.2 icmp_seq=11 timeout
+192.168.10.2 icmp_seq=12 timeout
+192.168.10.2 icmp_seq=13 timeout
+84 bytes from 192.168.10.2 icmp_seq=14 ttl=64 time=0.506 ms
+84 bytes from 192.168.10.2 icmp_seq=15 ttl=64 time=0.681 ms
+84 bytes from 192.168.10.2 icmp_seq=16 ttl=64 time=0.632 ms
+84 bytes from 192.168.10.2 icmp_seq=17 ttl=64 time=1.493 ms
+84 bytes from 192.168.10.2 icmp_seq=18 ttl=64 time=0.673 ms
+84 bytes from 192.168.10.2 icmp_seq=19 ttl=64 time=0.917 ms
+84 bytes from 192.168.10.2 icmp_seq=20 ttl=64 time=0.679 ms
+84 bytes from 192.168.10.2 icmp_seq=21 ttl=64 time=0.772 ms
+84 bytes from 192.168.10.2 icmp_seq=22 ttl=64 time=0.663 ms
+84 bytes from 192.168.10.2 icmp_seq=23 ttl=64 time=0.654 ms
+84 bytes from 192.168.10.2 icmp_seq=24 ttl=64 time=0.519 ms
+84 bytes from 192.168.10.2 icmp_seq=25 ttl=64 time=0.596 ms
+84 bytes from 192.168.10.2 icmp_seq=26 ttl=64 time=0.870 ms
+84 bytes from 192.168.10.2 icmp_seq=27 ttl=64 time=0.975 ms
+84 bytes from 192.168.10.2 icmp_seq=28 ttl=64 time=0.464 ms
+84 bytes from 192.168.10.2 icmp_seq=29 ttl=64 time=1.273 ms
+84 bytes from 192.168.10.2 icmp_seq=30 ttl=64 time=0.774 ms

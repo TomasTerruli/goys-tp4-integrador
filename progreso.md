@@ -10,10 +10,10 @@
 | Nombre | Usuario de GitHub | Rol en el grupo |
 |--------|-------------------|-----------------|
 | Pilar Giannelli | `pilargiannelli` | Búsqueda de fuentes, investigación y revisión |
-| Tomás Terruli | `TomasTerruli` | Diseño, armado y medición de la mini simulación |
-| Martina Castellani | `Marticaste144` | Organización e integración del artículo, póster y repositorio |
+| Tomás Terruli | `TomasTerruli` | documentación de la metodología y análisis de resultados. |
+| Martina Castellani | `Marticaste144` | armado y ejecución de la simulación, organización del artículo y póster. |
 
-## 🎯 Proyecto
+##  Proyecto
 
 - **Modalidad:** B — Artículo de Revisión del Estado del Arte, con una mini simulación
 - **Título:** De las métricas a las acciones: calidad de las alertas y detección de fallas en servicios
@@ -21,15 +21,15 @@
 - **Pregunta de investigación:** ¿Cómo influyen los criterios de activación de alertas en la cantidad de notificaciones y en el tiempo de detección de una falla?
 - **Simulación:** red chica en GNS3 donde comprobamos la conectividad con ping; comparamos avisar con el primer fallo contra esperar varios fallos seguidos.
 
-## 🗓️ Registro de avance
+## Registro de avance
 
 | Fecha | Qué se hizo | Quién | Commit |
 |-------|-------------|-------|--------|
 | 09/11/2026 | Borrador de la introducción con una referencia oficial (OpenTelemetry) en `documento/introduccion.md` | Martina | `0bdfa90` |
 | 09/11/2026 | Revisión y merge del PR #1 (introducción) | Tomás | `855296a` |
 | 12/11/2026 | Ronda 1, paso 1: delimitación del tema. Actualicé el README con título, integrantes, modalidad, objetivo, alcance y entregables. Creé `documento/alcance.md` con la pregunta, los objetivos, los términos que usamos y los límites. Busqué y verifiqué 14 fuentes (documentación oficial, RFC/estándares y artículos académicos) y anoté sus datos y para qué sirve cada una en `documento/fuentes-investigacion.md` | Pilar | rama `pilar-delimitacion-tema` |
-
-## ✅ Decisiones tomadas
+| 13/11/2026 | Armé la red en GNS3 y ejecuté nueve pruebas de conectividad. Guardé los registros, dos capturas, el proyecto portable y las instrucciones para reproducirlo. | Martina | Consultar historial de Git |
+##  Decisiones tomadas
 
 - Modalidad B, con una mini simulación como complemento de la revisión.
 - Pregunta de investigación y título definidos (ver `documento/alcance.md`).
@@ -38,7 +38,7 @@
 - Si aplicamos los criterios a mano sobre una tabla, lo decimos así; no decimos que implementamos alertas automáticas.
 - Los resultados de la simulación no se generalizan a redes reales.
 
-## 🚧 Pendientes
+## Pendientes
 
 ### Ronda 1 — organizar y preparar
 - [x] Pilar: actualizar README, progreso, alcance y buscar fuentes
@@ -55,7 +55,7 @@
 - [ ] Tomás: comprobar que la demo se pueda reproducir, preparar la demostración de 3–5 minutos sin internet y dejar finales el diagrama, las configuraciones, los registros y las tablas
 - [ ] Martina: póster A1, exportar a PDF, README final, revisión de `progreso.md` y del checklist
 
-## 📝 Notas
+## Notas
 
 - El `.gitignore` excluye los archivos `*.log`. Los registros de la simulación hay que guardarlos con otra extensión (por ejemplo `.txt` o `.csv`) para que se suban.
 - La numeración de `documento/fuentes-investigacion.md` es provisional; la final va en `documento/referencias.md`.

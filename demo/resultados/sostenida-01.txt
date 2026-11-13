@@ -1,0 +1,37 @@
+PC1> ping 192.168.10.2 -c 30 -i 1000 -w 500
+84 bytes from 192.168.10.2 icmp_seq=1 ttl=64 time=0.725 ms
+84 bytes from 192.168.10.2 icmp_seq=2 ttl=64 time=0.822 ms
+84 bytes from 192.168.10.2 icmp_seq=3 ttl=64 time=1.029 ms
+84 bytes from 192.168.10.2 icmp_seq=4 ttl=64 time=0.815 ms
+84 bytes from 192.168.10.2 icmp_seq=5 ttl=64 time=1.103 ms
+84 bytes from 192.168.10.2 icmp_seq=6 ttl=64 time=0.941 ms
+84 bytes from 192.168.10.2 icmp_seq=7 ttl=64 time=0.617 ms
+84 bytes from 192.168.10.2 icmp_seq=8 ttl=64 time=0.668 ms
+84 bytes from 192.168.10.2 icmp_seq=9 ttl=64 time=0.839 ms
+84 bytes from 192.168.10.2 icmp_seq=10 ttl=64 time=0.807 ms
+192.168.10.2 icmp_seq=11 timeout
+192.168.10.2 icmp_seq=12 timeout
+192.168.10.2 icmp_seq=13 timeout
+192.168.10.2 icmp_seq=14 timeout
+192.168.10.2 icmp_seq=15 timeout
+192.168.10.2 icmp_seq=16 timeout
+192.168.10.2 icmp_seq=17 timeout
+192.168.10.2 icmp_seq=18 timeout
+192.168.10.2 icmp_seq=19 timeout
+192.168.10.2 icmp_seq=20 timeout
+192.168.10.2 icmp_seq=21 timeout
+192.168.10.2 icmp_seq=22 timeout
+192.168.10.2 icmp_seq=23 timeout
+84 bytes from 192.168.10.2 icmp_seq=24 ttl=64 time=0.636 ms
+84 bytes from 192.168.10.2 icmp_seq=25 ttl=64 time=0.750 ms
+84 bytes from 192.168.10.2 icmp_seq=26 ttl=64 time=0.751 ms
+84 bytes from 192.168.10.2 icmp_seq=27 ttl=64 time=0.538 ms
+84 bytes from 192.168.10.2 icmp_seq=28 ttl=64 time=0.442 ms
+84 bytes from 192.168.10.2 icmp_seq=29 ttl=64 time=0.545 ms
+84 bytes from 192.168.10.2 icmp_seq=30 ttl=64 time=0.462 ms
+
+
+
+Interrupción manual mediante Suspend/Resume del enlace Switch1–PC2.
+Se intentó un corte breve, pero se observaron 13 timeouts consecutivos.
+No se midió la duración exacta del corte.
