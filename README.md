@@ -32,36 +32,59 @@ Para cada criterio contamos cuántas notificaciones se emiten, cuántos incident
 
 ## Alcance
 
-- **Revisión bibliográfica:** observabilidad, estrategias de alertado, SLI/SLO, fatiga de alarmas, innovaciones de los últimos tres años, seguridad y protección de los registros, y desafíos. Usamos al menos seis fuentes verificadas, con al menos un artículo académico, una documentación oficial y un RFC o estándar.
-- **Mini simulación:** una red chica en GNS3 (cliente, servidor y los equipos del medio) donde comprobamos la conectividad con ping cada cierto tiempo. Los escenarios son funcionamiento normal, interrupción breve, caída sostenida y recuperación. Cada uno se repite al menos tres veces.
-- **Límites:** la simulación es un complemento para discutir ventajas y limitaciones, no algo para sacar conclusiones generales sobre redes reales. Si aplicamos los criterios a mano sobre una tabla, lo decimos así y no lo presentamos como un sistema de alertas automático.
+- **Revisión bibliográfica:** observabilidad, estrategias de alertado, SLI/SLO, fatiga de alarmas, innovaciones de los últimos tres años, seguridad y protección de los registros, y desafíos. El artículo cita 10 fuentes verificadas: documentación oficial (OpenTelemetry y Prometheus), los libros de Google sobre SRE, los RFC 792 y 5424, la guía NIST SP 800-92 y tres artículos académicos (COLA, AlertGuardian y Tariq *et al.*). El relevamiento completo está en `documento/fuentes-investigacion.md`.
+- **Mini simulación:** dos equipos VPCS conectados a un switch en GNS3. Desde PC1 ejecutamos `ping` hacia PC2 (30 comprobaciones por prueba) y provocamos cortes manuales del enlace. Obtuvimos nueve registros: tres sin cortes, tres intentos de corte breve, dos cortes sostenidos y una ejecución exploratoria que presentamos aparte.
+- **Límites:** la simulación complementa la revisión y no se generaliza a redes reales. Los dos criterios se aplicaron manualmente sobre los registros; no implementamos un sistema de alertas automático.
 
 El detalle está en [`documento/alcance.md`](documento/alcance.md).
 
+## Resultado principal
+
+Sobre las ocho pruebas de la comparación principal (5 incidentes), avisar ante el primer fallo generó **5 notificaciones** y esperar tres fallos consecutivos generó **3**. La diferencia aparece solo en los cortes breves; en los sostenidos, los dos criterios detectaron el incidente y el segundo lo hizo dos comprobaciones más tarde. Ningún criterio es mejor en general: depende de qué interrupciones requieren intervención, algo que debería salir de un objetivo de servicio.
+
 ## Entregables
 
-| Entregable | Qué incluye | Dónde está |
-|------------|-------------|------------|
-| Artículo de revisión | 5–7 páginas: resumen, introducción, estado del arte, comparación, innovaciones emergentes, oportunidades y desafíos (con seguridad), conclusiones y referencias | `documento/` (PDF y editable) |
-| Mini simulación | Protocolo, topología, configuraciones, registros originales, tablas de resultados y capturas | `demo/`, `diagramas/`, `capturas/` |
-| Póster A1 | Problema, objetivo, diagrama de red, metodología, resultados comparativos, conclusiones y QR al repositorio | `poster/` (PDF y editable) |
-| Repositorio | Bitácora, instrucciones para reproducir la demo y enlaces finales | este repositorio |
+| Entregable | Archivo final | Editable |
+|------------|---------------|----------|
+| Artículo de revisión (7 páginas + portada) | [`documento/articulo-grupo07.pdf`](documento/articulo-grupo07.pdf) | [`documento/articulo-grupo07.docx`](documento/articulo-grupo07.docx) |
+| Póster A1 (infografía) | [`poster/poster-grupo07.pdf`](poster/poster-grupo07.pdf) | [`poster/poster-grupo07.html`](poster/poster-grupo07.html) |
+| Mini simulación | [`demo/README.md`](demo/README.md), [`demo/analisis.md`](demo/analisis.md), registros en [`demo/resultados/`](demo/resultados/) | Proyecto [`demo/GOYS-Observabilidad-Grupo07.gns3project`](demo/GOYS-Observabilidad-Grupo07.gns3project) |
+| Topología y capturas | [`diagramas/topologia.png`](diagramas/topologia.png), [`capturas/`](capturas/) | — |
+| Bitácora y checklist | [`progreso.md`](progreso.md), [`checklist-entrega.md`](checklist-entrega.md) | — |
+
+## Cómo ejecutar la demo
+
+Requisitos: GNS3 2.2.x con VPCS (probado con GNS3 2.2.61 en Windows y VPCS 0.6.2). No necesita internet.
+
+1. En GNS3: **File → Import portable project** y elegir `demo/GOYS-Observabilidad-Grupo07.gns3project`.
+2. Iniciar todos los equipos (botón ▶).
+3. Abrir la consola de PC1 y de PC2 y comprobar las direcciones con `show ip` (PC1 `192.168.10.1/24`, PC2 `192.168.10.2/24`).
+4. Desde PC1 ejecutar:
+   ```
+   ping 192.168.10.2 -c 30 -i 1000 -w 500
+   ```
+5. Para provocar un corte: clic derecho sobre el enlace Switch1–PC2 → **Suspend**, y después **Resume**. Los pings perdidos aparecen como `timeout`.
+6. Aplicar los criterios sobre la salida: **C1** avisa en el primer `timeout` y **C2** en el tercer `timeout` seguido (ver [`demo/analisis.md`](demo/analisis.md)).
+
+Si la demo falla el día de la presentación, los registros originales de las nueve pruebas están en `demo/resultados/` y las capturas en `capturas/`.
 
 ## Archivos de trabajo
 
 | Archivo | Qué tiene |
 |---------|-----------|
-| [`progreso.md`](progreso.md) | Bitácora: avances, decisiones y pendientes |
-| [`documento/alcance.md`](documento/alcance.md) | Pregunta, objetivos y límites |
-| [`documento/fuentes-investigacion.md`](documento/fuentes-investigacion.md) | Fuentes que encontramos, sus datos y para qué nos sirve cada una |
-| [`documento/introduccion.md`](documento/introduccion.md) | Borrador de la introducción |
-| [`documento/estado-del-arte.md`](documento/estado-del-arte.md) | Secciones 2 a 4 del artículo: estado del arte, innovaciones, oportunidades y desafíos |
-| [`documento/revision-protocolo.md`](documento/revision-protocolo.md) | Revisión de los criterios y los datos de la simulación |
-| [`demo/README.md`](demo/README.md) y [`demo/analisis.md`](demo/analisis.md) | Procedimiento de la simulación y comparación de los criterios |
+| [`documento/estructura.md`](documento/estructura.md) | Organización del artículo usada para integrarlo |
+| [`documento/introduccion.md`](documento/introduccion.md) | Introducción (versión de trabajo) |
+| [`documento/estado-del-arte.md`](documento/estado-del-arte.md) | Estado del arte, innovaciones, oportunidades y desafíos (versión extendida) |
+| [`documento/metodologia-bibliografica.md`](documento/metodologia-bibliografica.md) | Cómo buscamos y elegimos las fuentes |
+| [`documento/referencias.md`](documento/referencias.md) y [`documento/fuentes-investigacion.md`](documento/fuentes-investigacion.md) | Referencias y relevamiento de fuentes |
+| [`documento/revision-protocolo.md`](documento/revision-protocolo.md) | Revisión de los datos y opciones para definir qué requiere intervención |
+| [`poster/hallazgos.md`](poster/hallazgos.md) | Hallazgos seleccionados para el póster |
+
+El artículo final numera las citas por orden de aparición (formato IEEE); los archivos de trabajo conservan la numeración de `documento/referencias.md`.
 
 ## Cómo trabajamos en GitHub
 
-Trabajamos en un único fork del grupo (`TomasTerruli/goys-tp4-integrador`) y en una sola rama compartida, `grupo-07`. El orden de turnos es Pilar → Tomás → Martina en las tres rondas. Antes de empezar, cada uno trae los cambios de los demás con `git pull origin grupo-07`; al terminar, hace su propio commit y lo sube a la misma rama. Cuando el trabajo esté completo, se abre un único Pull Request desde `grupo-07` hacia el repositorio de la cátedra, salvo que la cátedra indique otra forma de entrega.
+Trabajamos en un único fork del grupo (`TomasTerruli/goys-tp4-integrador`) y en una sola rama compartida, `grupo-07`. Antes de empezar, cada uno trae los cambios de los demás con `git pull origin grupo-07`; al terminar, hace su propio commit y lo sube a la misma rama. Cuando el trabajo esté completo, se abre un único Pull Request desde `grupo-07` hacia el repositorio de la cátedra (`rodriguezemautn/goys-tp4-integrador`, rama `main`), sin hacer merge.
 
 ---
 
