@@ -31,6 +31,7 @@ Registro de los aportes de cada integrante, las decisiones tomadas y las tareas 
 | 14/11/2026 | Adapté la introducción al enfoque de alertas, preparé la estructura del artículo, actualicé el alcance según las pruebas realizadas y organicé las referencias provisionales. | Martina | `aca7630`, `bae6c3e` |
 | 14/11/2026 | Preparé el borrador de la metodología bibliográfica a partir del relevamiento documentado. Queda pendiente la revisión de Pilar. | Martina | `dd6561e` |
 | 14/11/2026 | Revisión académica. Completé en `documento/metodologia-bibliografica.md` cómo buscamos y elegimos las fuentes. Comprobé que las citas del artículo coincidan con `documento/referencias.md` y corregí la lista de la introducción. Separé la guía NIST de 2006 ([16]) del borrador de 2023 ([9]), que sigue sin versión final. Completé AlertGuardian distinguiendo conferencia y preprint, y verifiqué en las fuentes originales las cifras de COLA, AlertGuardian y Zhao *et al.* En `documento/estado-del-arte.md` aclaré que Prometheus evalúa las reglas y Alertmanager gestiona las notificaciones, y saqué afirmaciones absolutas de la tabla. Elegí cinco hallazgos para el póster en `poster/hallazgos.md`. | Pilar | rama `grupo-07` |
+| 14/11/2026 | Definí la bibliografía que se cita en mi sección (estado del arte, innovaciones y desafíos): libro de SRE (caps. 4 y 6), SRE Workbook (cap. 5), documentación de Prometheus, RFC 792 y Tariq *et al.* (2025). Ajusté las citas en `documento/estado-del-arte.md`, `documento/revision-protocolo.md` y `poster/hallazgos.md`, ordené `documento/referencias.md` y dejé en `documento/fuentes-investigacion.md` la correspondencia con el registro de fuentes. | Pilar | rama `grupo-07` |
 
 ## Decisiones tomadas
 
@@ -69,7 +70,6 @@ Registro de los aportes de cada integrante, las decisiones tomadas y las tareas 
 ### Ronda 3 — revisar y entregar
 
 - [x] Pilar: revisar citas, referencias, precisión del contenido y aspectos de seguridad; resolver las verificaciones bibliográficas pendientes y seleccionar los hallazgos principales para la infografía.
-- [ ] Pilar: buscar en IEEE Xplore el DOI de AlertGuardian en las actas de ASE 2025 (no aparece en los registros consultados).
 - [ ] Martina: comprobar que el proyecto GNS3 se pueda importar y reproducir; preparar la demo de 3–5 minutos y verificar que funcione sin internet; dejar listas las configuraciones, capturas y registros.
 - [ ] Tomás: integrar y dar formato al paper, armar el póster A1 con los aportes del grupo y exportar ambos a PDF.
 - [ ] Tomás: actualizar README, bitácora y checklist; comprobar que estén todos los entregables y sus archivos editables.
@@ -78,8 +78,7 @@ Registro de los aportes de cada integrante, las decisiones tomadas y las tareas 
 ## Notas
 
 - El `.gitignore` excluye los archivos `*.log`. Guardamos los registros de la simulación como `.txt` para incluirlos en el repositorio.
-- `documento/referencias.md` conserva por ahora la numeración de `documento/fuentes-investigacion.md`. Al integrar el paper debemos comprobar que cada cita corresponda a la fuente correcta.
-- NIST SP 800-92r1 sigue como borrador al 14/11/2026. La guía de 2006 se cita como [16] y el borrador de 2023 como [9]. Volver a fijarse antes de entregar.
-- AlertGuardian se cita con la versión de conferencia (ASE 2025) y el preprint de arXiv. Falta el DOI de las actas.
-- Al integrar el paper, usar `documento/referencias.md` (16 fuentes) como lista final y sacar las listas parciales de cada archivo.
+- `documento/referencias.md` tiene la lista final del artículo (6 fuentes, con numeración propia). La correspondencia con la numeración de `documento/fuentes-investigacion.md` está al principio de ese archivo.
+- Al integrar el paper, usar `documento/referencias.md` como lista final y sacar las listas parciales de cada archivo. La lista al final de `documento/introduccion.md` todavía describe [2] como el capítulo 6; en `referencias.md`, [2] es el libro completo.
+- La sección de innovaciones se apoya en Tariq *et al.* (2025) y el apartado de protección de registros no tiene una fuente específica. Si hace falta más respaldo, en `documento/fuentes-investigacion.md` hay fuentes ya verificadas sobre esos temas (RFC 5424 y AlertGuardian).
 - Mantener los registros originales y señalar las limitaciones de la experiencia al presentar los resultados.

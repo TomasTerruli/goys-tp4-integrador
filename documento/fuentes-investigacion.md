@@ -4,6 +4,21 @@ Primera búsqueda de fuentes sobre calidad de alertas, SLI/SLO y fatiga de alarm
 
 **Fecha de consulta de los recursos en línea:** 12 de noviembre de 2026.
 
+## 0. Fuentes que quedaron en el artículo
+
+Este archivo es el registro de todas las fuentes que consultamos, con su numeración original. Las que se citan en el artículo están en `documento/referencias.md`, con esta correspondencia:
+
+| En `referencias.md` | En este archivo | Fuente |
+|---------------------|-----------------|--------|
+| [1] | [1] | OpenTelemetry, *Observability primer* (la usa la introducción) |
+| [2] | [2] y [3] | Beyer *et al.* (eds.), *Site Reliability Engineering* (2016), caps. 4 y 6, citado como libro |
+| [3] | [6] | RFC 792, ICMP |
+| [4] | [4] | Thurgood *et al.*, "Alerting on SLOs" (2018) |
+| [5] | [5] | Prometheus, *Alerting rules* |
+| [6] | [12] | Tariq *et al.* (2025) |
+
+Las fuentes [7], [8], [9], [10], [11], [13], [14], [15] y [16] se consultaron como material de apoyo.
+
 ## 1. Qué cubre cada fuente
 
 | Requisito de la modalidad B | Fuentes |

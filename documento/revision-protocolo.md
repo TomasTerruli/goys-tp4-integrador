@@ -30,7 +30,7 @@ Todas las pruebas tienen 30 comprobaciones numeradas sin saltos, y cada prueba c
 
 ## 3. Lo que falta definir o aclarar
 
-**1. Qué interrupción requiere intervención.** Es lo único que bloquea las conclusiones. Sin esta definición no se pueden calcular la precisión ni la exhaustividad de cada criterio, que son los atributos que usa la bibliografía para comparar estrategias [4]. Según [3] y [4], la definición debería salir de un objetivo de servicio. Estas son algunas opciones, aplicadas a los cinco incidentes de la comparación principal:
+**1. Qué interrupción requiere intervención.** Es lo único que bloquea las conclusiones. Sin esta definición no se pueden calcular la precisión ni la exhaustividad de cada criterio, que son los atributos que usa la bibliografía para comparar estrategias [4]. Según [2, cap. 4] y [4], la definición debería salir de un objetivo de servicio. Estas son algunas opciones, aplicadas a los cinco incidentes de la comparación principal:
 
 | Opción: requiere intervención si… | Incidentes relevantes | C1 (5 avisos) | C2 (3 avisos) |
 |-----------------------------------|-----------------------|---------------|---------------|
@@ -50,4 +50,4 @@ La tabla muestra lo mismo que dice la bibliografía: cuál criterio "gana" depen
 
 ## 4. Referencias usadas en esta revisión
 
-Se usa la numeración de `documento/fuentes-investigacion.md`: [3] Jones *et al.*, "Service level objectives"; [4] Thurgood *et al.*, "Alerting on SLOs".
+Se usa la numeración de `documento/referencias.md`: [2] Beyer *et al.* (eds.), *Site Reliability Engineering* (2016), cap. 4; [4] Thurgood *et al.*, "Alerting on SLOs" (2018).
