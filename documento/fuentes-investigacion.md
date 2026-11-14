@@ -16,8 +16,12 @@ Este archivo es el registro de todas las fuentes que consultamos, con su numerac
 | [4] | [4] | Thurgood *et al.*, "Alerting on SLOs" (2018) |
 | [5] | [5] | Prometheus, *Alerting rules* |
 | [6] | [12] | Tariq *et al.* (2025) |
+| [7] | [13] | Kuang *et al.*, COLA (2024) |
+| [8] | [14] | Yu *et al.*, AlertGuardian (2025) |
+| [9] | [8] | RFC 5424, syslog |
+| [10] | [16] | Kent y Souppaya, NIST SP 800-92 (2006) |
 
-Las fuentes [7], [8], [9], [10], [11], [13], [14], [15] y [16] se consultaron como material de apoyo.
+Las fuentes [7], [9], [10], [11] y [15] se consultaron como material de apoyo.
 
 ## 1. Qué cubre cada fuente
 

@@ -32,6 +32,7 @@ Registro de los aportes de cada integrante, las decisiones tomadas y las tareas 
 | 14/11/2026 | Preparé el borrador de la metodología bibliográfica a partir del relevamiento documentado. Queda pendiente la revisión de Pilar. | Martina | `dd6561e` |
 | 14/11/2026 | Revisión académica. Completé en `documento/metodologia-bibliografica.md` cómo buscamos y elegimos las fuentes. Comprobé que las citas del artículo coincidan con `documento/referencias.md` y corregí la lista de la introducción. Separé la guía NIST de 2006 ([16]) del borrador de 2023 ([9]), que sigue sin versión final. Completé AlertGuardian distinguiendo conferencia y preprint, y verifiqué en las fuentes originales las cifras de COLA, AlertGuardian y Zhao *et al.* En `documento/estado-del-arte.md` aclaré que Prometheus evalúa las reglas y Alertmanager gestiona las notificaciones, y saqué afirmaciones absolutas de la tabla. Elegí cinco hallazgos para el póster en `poster/hallazgos.md`. | Pilar | rama `grupo-07` |
 | 14/11/2026 | Definí la bibliografía que se cita en mi sección (estado del arte, innovaciones y desafíos): libro de SRE (caps. 4 y 6), SRE Workbook (cap. 5), documentación de Prometheus, RFC 792 y Tariq *et al.* (2025). Ajusté las citas en `documento/estado-del-arte.md`, `documento/revision-protocolo.md` y `poster/hallazgos.md`, ordené `documento/referencias.md` y dejé en `documento/fuentes-investigacion.md` la correspondencia con el registro de fuentes. | Pilar | rama `grupo-07` |
+| 14/11/2026 | Ajustes académicos en `documento/estado-del-arte.md`: desarrollé las innovaciones emergentes (COLA, AlertGuardian y Tariq *et al.*) explicando qué problema resuelven y por qué son nuevas; amplié la seguridad de los registros con medidas de integridad, acceso, conservación y hora confiable, con respaldo de RFC 5424 y NIST SP 800-92; y rehice la tabla comparativa separando activación de entrega y sin expresiones absolutas. Sumé esas cuatro fuentes, ya verificadas, a `documento/referencias.md` (quedan diez) y actualicé la cantidad en `documento/metodologia-bibliografica.md`. | Pilar | rama `grupo-07` |
 
 ## Decisiones tomadas
 
@@ -78,7 +79,6 @@ Registro de los aportes de cada integrante, las decisiones tomadas y las tareas 
 ## Notas
 
 - El `.gitignore` excluye los archivos `*.log`. Guardamos los registros de la simulación como `.txt` para incluirlos en el repositorio.
-- `documento/referencias.md` tiene la lista final del artículo (6 fuentes, con numeración propia). La correspondencia con la numeración de `documento/fuentes-investigacion.md` está al principio de ese archivo.
-- Al integrar el paper, usar `documento/referencias.md` como lista final y sacar las listas parciales de cada archivo. La lista al final de `documento/introduccion.md` todavía describe [2] como el capítulo 6; en `referencias.md`, [2] es el libro completo.
-- La sección de innovaciones se apoya en Tariq *et al.* (2025) y el apartado de protección de registros no tiene una fuente específica. Si hace falta más respaldo, en `documento/fuentes-investigacion.md` hay fuentes ya verificadas sobre esos temas (RFC 5424 y AlertGuardian).
+- `documento/referencias.md` tiene la lista final del artículo (10 fuentes, con numeración propia). La correspondencia con la numeración de `documento/fuentes-investigacion.md` está al principio de ese archivo.
+- Al integrar el paper, usar `documento/referencias.md` como lista final y sacar las listas parciales de cada archivo.
 - Mantener los registros originales y señalar las limitaciones de la experiencia al presentar los resultados.

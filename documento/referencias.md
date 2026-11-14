@@ -13,3 +13,11 @@ Listado de trabajo con las fuentes que se citan en el artículo. El relevamiento
 [5] Prometheus Authors, "Alerting rules," *Prometheus Documentation*. [En línea]. Disponible: https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/
 
 [6] S. Tariq, M. Baruwal Chhetri, S. Nepal y C. Paris, "Alert fatigue in security operations centres: Research challenges and opportunities," *ACM Computing Surveys*, vol. 57, no. 9, art. 224, pp. 1–38, abr. 2025. doi: 10.1145/3723158.
+
+[7] J. Kuang *et al.*, "Knowledge-aware alert aggregation in large-scale cloud systems: A hybrid approach," en *Proc. 46th Int. Conf. Software Engineering: Software Engineering in Practice (ICSE-SEIP '24)*, Lisboa, Portugal, 2024. doi: 10.1145/3639477.3639745.
+
+[8] G. Yu *et al.*, "AlertGuardian: Intelligent alert life-cycle management for large-scale cloud systems," en *Proc. 40th IEEE/ACM Int. Conf. Automated Software Engineering (ASE 2025)*, Seúl, Corea del Sur, 2025, pp. 1–12. Versión preprint: arXiv:2601.14912 [cs.DC], ene. 2026. doi: 10.48550/arXiv.2601.14912.
+
+[9] R. Gerhards, "The Syslog Protocol," RFC 5424, mar. 2009. doi: 10.17487/RFC5424.
+
+[10] K. Kent y M. Souppaya, "Guide to Computer Security Log Management," NIST, Gaithersburg, MD, EE. UU., NIST SP 800-92, sep. 2006. doi: 10.6028/NIST.SP.800-92.

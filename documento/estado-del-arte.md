@@ -50,23 +50,34 @@ El problema de tener demasiados avisos no es solo de la operación de redes. Tam
 
 ### 2.6. Tabla comparativa
 
-| Estrategia | Cuándo avisa | Notificaciones innecesarias | Demora de detección | Punto débil | Fuentes |
-|------------|--------------|-----------------------------|---------------------|-------------|---------|
-| Umbral inmediato (primer fallo) | En cuanto se cumple la condición | Tiende a generar más: cualquier pico que cumpla la condición avisa | La menor de las opciones | Baja precisión | [4], [5] |
-| Duración mínima (`for`, *N* fallos seguidos) | Si la condición se mantiene un tiempo o *N* comprobaciones | Puede generar menos: no avisa por picos más cortos que la duración | Mayor, y fija sin importar la gravedad | Fallas intermitentes pueden no avisar nunca | [4], [5] |
-| Ventana larga | Si el error acumulado en muchas horas supera el umbral | Pocas en el análisis de [4] | Razonable | La alerta sigue activa mucho después de la solución | [4] |
-| Tasa de consumo del presupuesto de error, con varias ventanas | Si el presupuesto se gasta rápido en la ventana larga y en la corta | Pocas en el análisis de [4] | Se adapta a la gravedad | Muchos parámetros para ajustar | [4] |
-| Capa de notificaciones (Alertmanager) | No decide cuándo alertar: trabaja sobre las alertas que ya se dispararon | Resume, limita y permite silenciar notificaciones | No la cambia | Hay que configurar bien las dependencias entre alertas | [5] |
+En la tabla separamos dos cosas que a veces se mezclan: cuándo se **activa** una alerta y cómo se **entrega** la notificación. Las primeras cuatro estrategias deciden la activación; las dos últimas trabajan sobre alertas que ya se activaron.
+
+| Estrategia | Qué controla | Cuándo actúa | Efecto en la cantidad de notificaciones | Efecto en la demora | Limitaciones | Fuentes |
+|------------|--------------|--------------|-----------------------------------------|---------------------|--------------|---------|
+| Umbral inmediato (primer fallo) | Activación | En la primera evaluación en que se cumple la condición | Avisa por cualquier pico que cumpla la condición; en el ejemplo de [4], hasta 144 alertas por día aunque se cumpla el SLO | Avisa apenas se cumple la condición; la demora depende de cada cuánto se evalúa la regla | En el análisis de [4] tiene poca precisión | [4], [5] |
+| Duración mínima (`for`, *N* fallos seguidos) | Activación | Cuando la condición se mantiene un tiempo o durante *N* comprobaciones | Puede bajar, porque no avisa por picos más cortos que esa duración | Suma la espera elegida, igual para cualquier gravedad | Una falla que va y viene puede no activar nunca la alerta | [4], [5] |
+| Ventana larga | Activación | Cuando el error acumulado en una ventana larga supera el umbral | En el análisis de [4], mejora la precisión frente al umbral inmediato | Aceptable en ese análisis | La alerta sigue activa mucho después de la solución | [4] |
+| Tasa de consumo del presupuesto de error, con varias ventanas | Activación | Cuando el presupuesto se gasta rápido en una ventana larga y en una corta | En el análisis de [4], buena precisión | Más corta cuanto más grave es la falla | Muchos parámetros para ajustar | [4] |
+| Capa de notificaciones (Alertmanager) | Entrega | Después de que la alerta se activó | Puede resumir, limitar y silenciar notificaciones | No cambia cuándo se activa la alerta | Hay que configurar bien las dependencias entre alertas | [5] |
+| Agregación y resumen con IA (COLA, AlertGuardian) | Entrega y, en AlertGuardian, mejora de las reglas | Sobre las alertas ya activadas | En sus evaluaciones redujeron mucho la cantidad de alertas a revisar | No cambia cuándo se activa cada alerta | Probadas con datos de grandes empresas; las propuestas necesitan revisión humana | [7], [8] |
 
 ### 2.7. Limitaciones del estado actual
 
-Las estrategias más completas necesitan un SLO bien definido y bastante tráfico. Con pocos datos, un solo error pesa demasiado: si un servicio recibe 10 solicitudes por hora y falla una, la tasa de error es del 10%, y con un SLO de 99,9% eso dispararía un aviso inmediato [4].
+Las estrategias más completas necesitan un SLO bien definido y bastante tráfico. Con pocos datos, un solo error pesa demasiado: si un servicio recibe 10 solicitudes por hora y falla una, la tasa de error es del 10%, y con un SLO de 99,9% eso dispararía un aviso inmediato [4]. Además, herramientas como Alertmanager se concentran en configurar y disparar reglas, pero no evalúan si esas reglas son buenas [8].
 
 ---
 
 ## 3. Innovaciones emergentes
 
-La fuente más reciente que usamos es la revisión de Tariq *et al.* (2025) sobre fatiga de alertas en los SOC [6]. Lo interesante es que no busca solo un umbral mejor. Revisa las soluciones de la investigación y de la industria desde tres enfoques: automatización, ayuda al analista y colaboración entre personas e IA [6]. A partir de esa revisión, los autores identifican cuatro causas principales de la fatiga, analizan qué les falta a las soluciones actuales y proponen nuevas líneas de investigación que usan IA [6]. Y esperan que esas ideas sirvan también fuera de los SOC, en otros ámbitos de mando y control [6].
+Los trabajos de los últimos años ya no buscan solo el umbral correcto. Intentan trabajar sobre las alertas que ya se generaron: agruparlas, resumirlas y mejorar las reglas que las producen.
+
+**Agregación de alertas con conocimiento operativo (COLA, 2024).** El problema que ataca es concreto: cuando falla un sistema en la nube, se dispara una avalancha de alertas relacionadas que nadie puede revisar una por una [7]. Los métodos que había comparaban el texto de las alertas o usaban estadística. Pero dos alertas relacionadas pueden estar escritas de forma muy distinta, y la estadística anda mal con alertas que aparecen poco. COLA combina las dos cosas: un módulo estadístico resuelve los casos claros y solo los pares dudosos pasan a un modelo de lenguaje, que razona con los procedimientos operativos de cada alerta [7]. En tres conjuntos de datos reales de un proveedor de nube obtuvo valores F1 de entre 0,901 y 0,930, y en esas pruebas superó a los métodos con los que se comparó [7]. Lo nuevo es que, además de los datos de las alertas, usa lo que dejaron escrito los operadores.
+
+**Gestión del ciclo de vida de las alertas (AlertGuardian, 2025).** Yu *et al.* plantean que la fatiga de alertas viene de manejar mal todo el ciclo de vida de una alerta: cómo se crea la regla, cuándo se dispara, cómo se atiende y cómo se mejora después [8]. AlertGuardian trabaja en tres etapas. Primero filtra el ruido con un modelo de grafos, después resume las alertas con un modelo de lenguaje que busca información relevante y, por último, usa varios agentes para proponer mejoras a las reglas [8]. En cuatro conjuntos de datos reales redujo las alertas en un 94,8% y acertó el 90,5% de los diagnósticos de fallas. Además propuso mejoras para 1.174 reglas, de las cuales los ingenieros aceptaron 375, un 32% [8]. Lo innovador es que no se queda en el momento del aviso: vuelve sobre las reglas para que el problema no se repita. Y ese 32% muestra que la herramienta propone, pero la decisión sigue siendo humana.
+
+**Colaboración entre personas e IA en seguridad (2025).** La revisión de Tariq *et al.* sobre fatiga de alertas en los SOC no busca solo un umbral mejor. Revisa las soluciones de la investigación y de la industria desde tres enfoques: automatización, ayuda al analista y colaboración entre personas e IA [6]. A partir de esa revisión identifica cuatro causas principales de la fatiga, analiza qué les falta a las soluciones actuales y propone líneas de investigación que usan IA [6]. Los autores esperan que esas ideas sirvan también fuera de los SOC, en otros ámbitos de mando y control [6].
+
+Las tres propuestas apuntan a bajar la cantidad de avisos sin perder información. La diferencia con lo que vimos en la sección 2 es que no actúan solo en el momento de decidir si se avisa, sino también antes y después.
 
 ---
 
@@ -82,13 +93,20 @@ Dos situaciones siguen sin una solución sencilla. La primera son los servicios 
 
 ### 4.3. Seguridad de los registros y de las alertas
 
-Las alertas salen de los registros. Si los registros no son confiables, los avisos tampoco. En nuestra simulación, por ejemplo, los registros no tienen hora, así que la demora de detección solo se puede medir en comprobaciones y no en segundos.
+Las alertas salen de los registros. Si los registros no son confiables, los avisos tampoco. La guía de NIST advierte que un registro mal protegido, guardado o en tránsito, se puede alterar o destruir, y que así una actividad maliciosa puede pasar desapercibida [10]. Las fuentes que revisamos proponen medidas concretas en cuatro puntos:
+
+- **Integridad.** NIST recomienda calcular un resumen (*hash*) de cada archivo de registro y guardarlo aparte, protegido, para poder detectar si alguien lo cambió [10]. En syslog, el RFC 5424 aclara que el protocolo no detecta mensajes viejos reenviados (*replay*) ni impide que alguien en el medio modifique un mensaje, y menciona la firma criptográfica como una forma de evitar que se alteren las marcas de tiempo [9].
+- **Acceso y confidencialidad.** Los registros pueden tener datos sensibles, como contraseñas o contenido de correos [10]. Por eso conviene limitar quién puede verlos y proteger el tráfico de registros con una red separada o con cifrado [10]. Syslog por sí solo no da confidencialidad: el RFC 5424 recomienda usar el transporte con TLS [9].
+- **Conservación.** Los archivos de registro tienen un tamaño máximo. Cuando se llenan, sobrescriben lo más viejo o dejan de registrar, así que para cumplir los plazos de conservación hace falta archivarlos, y lo archivado también tiene que estar protegido [10]. Si los registros pueden servir como evidencia, NIST recomienda guardar también los originales [10].
+- **Hora confiable.** Cada equipo pone la hora con su propio reloj. Si el reloj está mal, después no se puede reconstruir el orden de los eventos, por eso NIST recomienda sincronizarlos, por ejemplo con NTP [10]. El RFC 5424 incluye un campo para indicar si el equipo estaba sincronizado con una fuente de hora externa [9].
+
+En nuestra simulación, por ejemplo, los registros no tienen hora, así que la demora de detección solo se puede medir en comprobaciones y no en segundos.
 
 El otro lado del problema es la fatiga en los equipos de seguridad, que ya tiene revisiones sistemáticas dedicadas [6]. El razonamiento es el mismo que en operación: cuando hay demasiados avisos, uno real se puede pasar por alto [2, cap. 6]. Por eso reducir el ruido no es solo una cuestión de comodidad, sino también de seguridad.
 
 ### 4.4. Inteligencia artificial con supervisión humana
 
-La revisión de Tariq *et al.* propone usar IA para combatir la fatiga, pero también analiza las limitaciones de las soluciones que ya existen [6]. Quedan abiertas preguntas sobre cómo validar estas herramientas, cómo adaptarlas a organizaciones más chicas y cómo repartir las decisiones entre la herramienta y las personas.
+Las herramientas basadas en modelos de lenguaje muestran buenos resultados, pero fueron evaluadas con datos de grandes empresas [7], [8], y solo una parte de sus propuestas termina siendo aceptada por los ingenieros [8]. La revisión de Tariq *et al.* también propone usar IA, pero analiza las limitaciones de las soluciones que ya existen [6]. Quedan abiertas preguntas sobre cómo validar estas herramientas, cómo adaptarlas a organizaciones más chicas y cómo repartir las decisiones entre la herramienta y las personas.
 
 ### 4.5. Oportunidades
 
