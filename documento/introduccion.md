@@ -18,6 +18,6 @@ La numeración corresponde a `documento/referencias.md`.
 
 [1] OpenTelemetry Authors, "Observability primer," *OpenTelemetry Documentation*. [En línea]. Disponible: https://opentelemetry.io/docs/concepts/observability-primer/
 
-[2] R. Ewaschuk, "Monitoring distributed systems," en *Site Reliability Engineering: How Google Runs Production Systems*, B. Beyer, C. Jones, J. Petoff y N. R. Murphy, Eds. Sebastopol, CA, EE. UU.: O'Reilly Media, 2016, cap. 6. [En línea]. Disponible: https://sre.google/sre-book/monitoring-distributed-systems/
+[2] B. Beyer, C. Jones, J. Petoff y N. R. Murphy, Eds., Site Reliability Engineering: How Google Runs Production Systems. Sebastopol, CA, EE. UU.: O’Reilly Media, 2016. Cap. 4, “Service level objectives”, y cap. 6, “Monitoring distributed systems”. [En línea]. Disponible: https://sre.google/sre-book/table-of-contents/
 
 [4] S. Thurgood *et al.*, "Alerting on SLOs," en *The Site Reliability Workbook: Practical Ways to Implement SRE*, B. Beyer, N. R. Murphy, D. K. Rensin, K. Kawahara y S. Thorne, Eds. Sebastopol, CA, EE. UU.: O'Reilly Media, 2018, cap. 5. [En línea]. Disponible: https://sre.google/workbook/alerting-on-slos/

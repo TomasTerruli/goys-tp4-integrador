@@ -8,7 +8,7 @@ Para elegir las fuentes tuvimos en cuenta cuatro criterios: que tuvieran relaci�
 
 El relevamiento quedó documentado en `documento/fuentes-investigacion.md`. Para cada fuente registramos sus datos bibliográficos, el tipo de publicación, su relación con la pregunta de investigación y su estado de verificación.
 
-El conjunto reúne documentación oficial de OpenTelemetry y Prometheus, capítulos de los libros de Google sobre SRE, documentos RFC y NIST, y artículos académicos. La documentación técnica aporta conceptos y ejemplos de funcionamiento; los artículos permiten discutir problemas, resultados e innovaciones.
+El conjunto reúne documentación oficial de OpenTelemetry y Prometheus, capítulos de los libros de Google sobre SRE, documentos RFC y NIST, y artículos académicos. La documentación técnica aporta conceptos y ejemplos de funcionamiento; los artículos permiten discutir problemas, resultados e innovaciones. En el artículo citamos seis de esas fuentes, que están en `documento/referencias.md`.
 
 Incluimos publicaciones anteriores para explicar conceptos y protocolos, junto con trabajos recientes para el apartado de innovaciones. El antecedente sobre fatiga de alarmas en el ámbito sanitario se utiliza únicamente para contextualizar el concepto, no como evidencia de resultados en redes informáticas.
 
