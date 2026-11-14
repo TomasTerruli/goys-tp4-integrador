@@ -28,7 +28,8 @@ Registro de los aportes de cada integrante, las decisiones tomadas y las tareas 
 | 13/11/2026 | Armé la red en GNS3 y ejecuté nueve pruebas de conectividad. Guardé los registros, dos capturas, el proyecto portable y las instrucciones para reproducirlo. | Martina | `65f7a43` |
 | 13/11/2026 | Revisé los nueve registros y documenté la metodología y la comparación de criterios en `demo/analisis.md`. Presenté `sostenida-01.txt` por separado como prueba exploratoria y expresé la demora en comprobaciones, porque los registros no tienen marcas temporales. | Tomás | `801dac3` |
 | 13/11/2026 | Redacté el estado del arte, la tabla comparativa, las innovaciones y los desafíos de seguridad en `documento/estado-del-arte.md`. Actualicé la verificación de las fuentes y agregué la documentación de Alertmanager. Revisé los registros y dejé opciones para interpretar qué interrupciones requieren intervención en `documento/revision-protocolo.md`. | Pilar | `d311d8a` |
-| 14/11/2026 | Adapté la introducción al enfoque de alertas, preparé la estructura del artículo, actualicé el alcance según las pruebas realizadas y organicé las referencias provisionales. | Martina | Consultar historial de Git |
+| 14/11/2026 | Adapté la introducción al enfoque de alertas, preparé la estructura del artículo, actualicé el alcance según las pruebas realizadas y organicé las referencias provisionales. | Martina | `aca7630`, `bae6c3e` |
+| 14/11/2026 | Preparé el borrador de la metodología bibliográfica a partir del relevamiento documentado. Queda pendiente la revisión de Pilar. | Martina | Consultar historial de Git |
 
 ## Decisiones tomadas
 
@@ -53,7 +54,8 @@ Registro de los aportes de cada integrante, las decisiones tomadas y las tareas 
 - [x] Pilar: actualizar README, bitácora y alcance; reunir las fuentes iniciales.
 - [x] Martina: diseñar la red en GNS3 y documentar el procedimiento en `demo/README.md`, tarea que inicialmente estaba asignada a Tomás.
 - [x] Martina: adaptar la introducción al objetivo, preparar la estructura del artículo y crear el listado provisional de referencias.
-- [ ] Martina: explicar cómo buscamos y seleccionamos las fuentes.
+- [x] Martina: preparar el borrador de la metodología bibliográfica en `documento/metodologia-bibliografica.md`.
+- [ ] Pilar: revisar que la metodología bibliográfica describa la búsqueda y selección que realizó.
 
 ### Ronda 2 — investigar y obtener resultados
 
@@ -77,4 +79,5 @@ Registro de los aportes de cada integrante, las decisiones tomadas y las tareas 
 - `documento/referencias.md` conserva por ahora la numeración de `documento/fuentes-investigacion.md`. Al integrar el paper debemos comprobar que cada cita corresponda a la fuente correcta.
 - Antes de entregar, confirmar el estado de publicación de NIST SP 800-92r1 y distinguir las citas del borrador de 2023 de las de la guía de 2006.
 - Completar los datos bibliográficos de AlertGuardian, distinguiendo la versión de conferencia del preprint.
+- La metodología bibliográfica es un borrador pendiente de revisión de Pilar antes de integrarlo a la versión final del artículo.
 - Mantener los registros originales y señalar las limitaciones de la experiencia al presentar los resultados.
