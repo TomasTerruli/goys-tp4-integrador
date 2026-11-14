@@ -41,27 +41,32 @@ Analizar cómo se relacionan el criterio que activa una alerta, la cantidad de n
 
 ### 4.2. Mini simulación
 
-- Topología chica en GNS3 con un cliente, un servidor y los equipos intermedios que hagan falta.
-- Comprobaciones de conectividad con ping (ICMP Echo) cada cierto intervalo.
-- Escenarios: funcionamiento normal, interrupción breve, caída sostenida y recuperación.
-- Cada escenario se corre al menos tres veces.
-- Los dos criterios se aplican sobre los mismos registros originales.
-- Medimos notificaciones emitidas, incidentes detectados y demora de detección.
+- Usamos dos equipos VPCS conectados a un Ethernet switch en GNS3.
+- Ejecutamos comprobaciones de conectividad desde PC1 hacia PC2 mediante ping.
+- Obtuvimos nueve registros de 30 comprobaciones: tres sin cortes, tres con cortes breves y tres guardados como cortes sostenidos.
+- El registro sostenida-01 corresponde a un intento de corte breve que se extendió más de lo previsto. Lo conservamos como prueba exploratoria y lo presentamos por separado.
+- La comparación principal incluye ocho pruebas: tres normales, tres breves y dos sostenidas. También mostramos qué cambia al incluir la exploratoria.
+- Aplicamos manualmente los dos criterios sobre los mismos registros: avisar ante el primer fallo o ante tres fallos consecutivos.
+- Contamos una notificación por racha de fallos para cada criterio que alcanza su condición de activación.
+- Expresamos la demora de detección en comprobaciones, porque no registramos marcas temporales.
 
-El protocolo (intervalo entre pings, duración de las interrupciones, cuántos fallos seguidos usa el criterio 2 y cómo se calcula cada valor) está en `demo/README.md`.
+El procedimiento y las instrucciones para reproducir la experiencia están en demo/README.md. La comparación está en demo/analisis.md.
 
 ## 5. Términos que usamos
 
 | Término | Qué significa en este trabajo |
 |---------|-------------------------------|
-| Comprobación | Un ping del cliente al servidor; puede dar éxito o fallo. |
-| Notificación | Un aviso que daría el criterio en un momento determinado. |
-| Incidente | Una interrupción que, según lo que acordemos antes de medir, necesita que alguien intervenga. |
-| Demora de detección | El tiempo entre que empieza la interrupción y la primera notificación que le corresponde. |
-| Criterio 1 | Avisar con el primer fallo. |
-| Criterio 2 | Avisar después de *N* fallos seguidos; el valor de *N* se fija en el protocolo de la simulación. |
+| Comprobación | Una solicitud de ping desde PC1 hacia PC2, con respuesta o timeout. |
+| Incidente de conectividad | Una racha de fallos consecutivos. Esta definición describe el registro; no implica que necesariamente requiera intervención. |
+| Notificación | Un aviso que habría generado el criterio aplicado manualmente. Contamos uno por incidente, sin sumar avisos de recuperación. |
+| Detección | La comprobación fallida en la que el criterio habría generado el aviso: primera para C1 y tercera para C2. |
+| Recuperación | La primera comprobación exitosa después de la racha de fallos. |
+| Criterio 1 | Avisar ante el primer fallo. |
+| Criterio 2 | Avisar ante tres fallos consecutivos. |
 
-Antes de aplicar los criterios definimos qué interrupciones necesitan intervención. Por eso una interrupción breve no cuenta automáticamente como falso positivo: depende de esa definición.
+No definimos antes de las pruebas qué interrupciones requerían intervención. Por eso no clasificamos los avisos como falsas alarmas ni afirmamos que menos notificaciones implique siempre una mejora.
+
+En el análisis presentamos distintas interpretaciones según qué cortes se consideren relevantes. Esas interpretaciones no cambian los registros obtenidos.
 
 ## 6. Límites
 

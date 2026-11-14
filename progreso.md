@@ -1,72 +1,80 @@
 # Bitácora del grupo — TP4
 
-> Registrar acá el avance: qué hizo cada integrante, decisiones tomadas y pendientes.
-> Esto ayuda a coordinar el trabajo y deja evidencia de la participación de todos.
+Registro de los aportes de cada integrante, las decisiones tomadas y las tareas pendientes.
 
----
-
-## 👥 Integrantes
+## Integrantes
 
 | Nombre | Usuario de GitHub | Rol en el grupo |
 |--------|-------------------|-----------------|
-| Pilar Giannelli | `pilargiannelli` | Búsqueda de fuentes, investigación y revisión |
-| Tomás Terruli | `TomasTerruli` | documentación de la metodología y análisis de resultados. |
-| Martina Castellani | `Marticaste144` | armado y ejecución de la simulación, organización del artículo y póster. |
+| Pilar Giannelli | `pilargiannelli` | Búsqueda de fuentes, investigación, revisión académica y selección de hallazgos para el póster |
+| Tomás Terruli | `TomasTerruli` | Metodología y análisis de resultados, integración del paper, póster y revisión final del repositorio |
+| Martina Castellani | `Marticaste144` | Armado y ejecución de la simulación, introducción, estructura, referencias y preparación de la demo |
 
-##  Proyecto
+## Proyecto
 
-- **Modalidad:** B — Artículo de Revisión del Estado del Arte, con una mini simulación
-- **Título:** De las métricas a las acciones: calidad de las alertas y detección de fallas en servicios
-- **Tema:** Observabilidad de servicios: criterios de alertado para detectar fallas y reducir notificaciones innecesarias
+- **Modalidad:** B — Artículo de Revisión del Estado del Arte, con una mini simulación.
+- **Título:** De las métricas a las acciones: calidad de las alertas y detección de fallas en servicios.
+- **Tema:** Observabilidad de servicios: criterios de alertado para detectar fallas y reducir notificaciones innecesarias.
 - **Pregunta de investigación:** ¿Cómo influyen los criterios de activación de alertas en la cantidad de notificaciones y en el tiempo de detección de una falla?
-- **Simulación:** red chica en GNS3 donde comprobamos la conectividad con ping; comparamos avisar con el primer fallo contra esperar varios fallos seguidos.
+- **Simulación:** red pequeña en GNS3 con dos equipos VPCS conectados a un switch. Comprobamos la conectividad con ping y comparamos avisar ante el primer fallo con esperar tres fallos consecutivos.
 
 ## Registro de avance
 
 | Fecha | Qué se hizo | Quién | Commit |
 |-------|-------------|-------|--------|
-| 09/11/2026 | Borrador de la introducción con una referencia oficial (OpenTelemetry) en `documento/introduccion.md` | Martina | `0bdfa90` |
-| 09/11/2026 | Revisión y merge del PR #1 (introducción) | Tomás | `855296a` |
-| 12/11/2026 | Ronda 1, paso 1: delimitación del tema. Actualicé el README con título, integrantes, modalidad, objetivo, alcance y entregables. Creé `documento/alcance.md` con la pregunta, los objetivos, los términos que usamos y los límites. Busqué y verifiqué 14 fuentes (documentación oficial, RFC/estándares y artículos académicos) y anoté sus datos y para qué sirve cada una en `documento/fuentes-investigacion.md` | Pilar | `61eb53c` |
-| 13/11/2026 | Armé la red en GNS3 y ejecuté nueve pruebas de conectividad. Guardé los registros, dos capturas, el proyecto portable y las instrucciones para reproducirlo. | Martina | Consultar historial de Git |
-| 13/11/2026 | Revisé `demo/README.md` y los nueve registros de `demo/resultados/`. Documenté la metodología y comparé los dos criterios (primer fallo y tres fallos consecutivos, una notificación por incidente) en `demo/analisis.md`. Separé `sostenida-01.txt` como prueba exploratoria y expresé la demora en comprobaciones, porque los registros no tienen marcas temporales | Tomás | rama `grupo-07` |
-| 13/11/2026 | Ronda 2: leí y verifiqué las fuentes contra registros oficiales y actualicé su estado en `documento/fuentes-investigacion.md` (agregué [15], la documentación de Alertmanager). Redacté las secciones 2 a 4 del artículo en `documento/estado-del-arte.md`: estado del arte con tabla comparativa, innovaciones emergentes, oportunidades, desafíos y seguridad de los registros. Revisé el protocolo en `documento/revision-protocolo.md`: recalculé los nueve registros (coinciden con `demo/analisis.md`) y dejé opciones para definir qué interrupción requiere intervención | Pilar | rama `grupo-07` |
+| 09/11/2026 | Preparé el borrador de la introducción con una referencia oficial de OpenTelemetry en `documento/introduccion.md`. | Martina | `0bdfa90` |
+| 09/11/2026 | Revisé y fusioné el PR #1 de la introducción. | Tomás | `855296a` |
+| 12/11/2026 | Delimité el tema y actualicé el README con título, integrantes, modalidad, objetivo, alcance y entregables. Creé `documento/alcance.md` y reuní 14 fuentes con sus datos, utilidad y estado de verificación en `documento/fuentes-investigacion.md`. | Pilar | `61eb53c` |
+| 13/11/2026 | Armé la red en GNS3 y ejecuté nueve pruebas de conectividad. Guardé los registros, dos capturas, el proyecto portable y las instrucciones para reproducirlo. | Martina | `65f7a43` |
+| 13/11/2026 | Revisé los nueve registros y documenté la metodología y la comparación de criterios en `demo/analisis.md`. Presenté `sostenida-01.txt` por separado como prueba exploratoria y expresé la demora en comprobaciones, porque los registros no tienen marcas temporales. | Tomás | `801dac3` |
+| 13/11/2026 | Redacté el estado del arte, la tabla comparativa, las innovaciones y los desafíos de seguridad en `documento/estado-del-arte.md`. Actualicé la verificación de las fuentes y agregué la documentación de Alertmanager. Revisé los registros y dejé opciones para interpretar qué interrupciones requieren intervención en `documento/revision-protocolo.md`. | Pilar | `d311d8a` |
+| 14/11/2026 | Adapté la introducción al enfoque de alertas, preparé la estructura del artículo, actualicé el alcance según las pruebas realizadas y organicé las referencias provisionales. | Martina | Consultar historial de Git |
 
-##  Decisiones tomadas
+## Decisiones tomadas
 
-- Modalidad B, con una mini simulación como complemento de la revisión.
-- Pregunta de investigación y título definidos (ver `documento/alcance.md`).
-- Los dos criterios se aplican sobre los mismos registros de conectividad.
-- Queda pendiente acordar qué interrupciones requieren intervención. Por ahora presentamos dos interpretaciones posibles, sin clasificar las notificaciones como falsas alarmas.
-- Si aplicamos los criterios a mano sobre una tabla, lo decimos así; no decimos que implementamos alertas automáticas.
-- Los resultados de la simulación no se generalizan a redes reales.
-- Cambio de tareas: Martina arma y ejecuta la simulación; Tomás documenta la metodología y analiza los resultados.
-- Ronda 3 redistribuida: Pilar hace la revisión académica, Martina cierra la demo y Tomás integra el paper, arma el póster y cierra el repositorio.
-- Criterio 2: avisar después de tres fallos consecutivos. Los dos criterios cuentan una notificación por incidente.
-- `sostenida-01.txt` es un registro válido pero exploratorio: queda fuera de la comparación principal. Lo decidimos después de ejecutar las pruebas.
-- La demora de detección se expresa en comprobaciones, no en segundos: los registros no tienen marcas temporales.
+- Elegimos la modalidad B, con una mini simulación como complemento de la revisión bibliográfica.
+- El título, la pregunta y los objetivos están en `documento/alcance.md`.
+- Trabajamos en un único fork grupal, sobre la rama compartida `grupo-07`, con commits propios de cada integrante. Al finalizar abriremos un único PR al repositorio del profesor y lo dejaremos abierto para su revisión.
+- Martina se encarga de la práctica en GNS3. Tomás documenta la metodología y analiza los registros.
+- En la ronda 3, Pilar realiza la revisión académica, Martina prepara la demo y Tomás integra el paper, arma el póster y revisa los entregables.
+- Aplicamos los dos criterios manualmente sobre los mismos registros. No implementamos alertas automáticas.
+- El criterio 1 avisa ante el primer fallo y el criterio 2 ante tres fallos consecutivos.
+- Contamos una notificación por racha de fallos para cada criterio que alcanza su condición de activación. La recuperación corresponde a la primera respuesta exitosa y no se cuenta como otra notificación.
+- No definimos antes de ejecutar las pruebas qué interrupciones requerían intervención. Por ahora presentamos interpretaciones alternativas, sin clasificar automáticamente los avisos como falsas alarmas.
+- Conservamos `sostenida-01.txt` como registro exploratorio y lo presentamos fuera de la comparación principal. Esta separación se decidió después de ejecutar las pruebas.
+- La comparación principal incluye ocho pruebas. También mostramos qué cambia al incluir la exploratoria.
+- La demora de detección se expresa en comprobaciones, no en segundos, porque los registros no tienen marcas temporales.
+- Las pruebas evalúan conectividad ICMP, no el funcionamiento de una aplicación. Los resultados no se generalizan a redes reales.
 
 ## Pendientes
 
 ### Ronda 1 — organizar y preparar
-- [x] Pilar: actualizar README, progreso, alcance y buscar fuentes
-- [x] Martina: diseñar la red en GNS3 y definir el procedimiento de las pruebas en `demo/README.md` (tarea que pasó de Tomás a Martina)
-- [ ] Martina: adaptar la introducción al objetivo, armar el índice según la modalidad B, explicar cómo buscamos y elegimos las fuentes y crear `documento/referencias.md`
+
+- [x] Pilar: actualizar README, bitácora y alcance; reunir las fuentes iniciales.
+- [x] Martina: diseñar la red en GNS3 y documentar el procedimiento en `demo/README.md`, tarea que inicialmente estaba asignada a Tomás.
+- [x] Martina: adaptar la introducción al objetivo, preparar la estructura del artículo y crear el listado provisional de referencias.
+- [ ] Martina: explicar cómo buscamos y seleccionamos las fuentes.
 
 ### Ronda 2 — investigar y obtener resultados
-- [x] Pilar: leer y verificar las fuentes; redactar alertas accionables, fatiga de alarmas, SLI/SLO, innovaciones recientes, desafíos y seguridad; revisar los criterios del protocolo (`documento/estado-del-arte.md` y `documento/revision-protocolo.md`)
-- [x] Martina: armar la topología y realizar nueve ejecuciones (tres normales, tres intentos de corte breve, dos cortes sostenidos y una ejecución exploratoria); guardar registros, capturas y proyecto
-- [x] Tomás: documentar la metodología y comparar los dos criterios sobre los registros: notificaciones, incidentes detectados y demora de detección (`demo/analisis.md`)
-- [ ] Los tres: definir qué interrupción requiere intervención, interpretar los resultados y acordar las conclusiones
-- [ ] Martina: preparar la introducción, la estructura y las referencias del artículo
+
+- [x] Pilar: redactar el estado del arte, las innovaciones, los desafíos y la seguridad; revisar las fuentes y el protocolo, dejando indicadas las verificaciones pendientes.
+- [x] Martina: realizar nueve ejecuciones: tres normales, tres de corte breve, dos de corte sostenido y una exploratoria; guardar registros, capturas y proyecto.
+- [x] Tomás: documentar la metodología y comparar las notificaciones, las rachas detectadas y la demora de detección en `demo/analisis.md`.
+- [x] Martina: preparar la introducción, la estructura y las referencias provisionales del artículo.
+- [ ] Los tres: acordar cómo interpretar la necesidad de intervención y redactar las conclusiones, aclarando los supuestos utilizados.
 
 ### Ronda 3 — revisar y entregar
-- [ ] Pilar: revisar citas, referencias, precisión del contenido y aspectos de seguridad; seleccionar los hallazgos principales para la infografía
-- [ ] Martina: verificar que el proyecto GNS3 se pueda importar y reproducir, preparar la demo de 3–5 minutos y comprobar que funcione sin internet; dejar listas las configuraciones, capturas y registros
-- [ ] Tomás: integrar y dar formato al paper, armar el póster A1 con los aportes del grupo y exportar ambos a PDF; actualizar README, bitácora y checklist, comprobando que estén todos los entregables y sus editables
+
+- [ ] Pilar: revisar citas, referencias, precisión del contenido y aspectos de seguridad; resolver las verificaciones bibliográficas pendientes y seleccionar los hallazgos principales para la infografía.
+- [ ] Martina: comprobar que el proyecto GNS3 se pueda importar y reproducir; preparar la demo de 3–5 minutos y verificar que funcione sin internet; dejar listas las configuraciones, capturas y registros.
+- [ ] Tomás: integrar y dar formato al paper, armar el póster A1 con los aportes del grupo y exportar ambos a PDF.
+- [ ] Tomás: actualizar README, bitácora y checklist; comprobar que estén todos los entregables y sus archivos editables.
+- [ ] Los tres: revisar la versión final, ensayar la exposición y comprobar el contenido del único PR de entrega.
 
 ## Notas
 
-- El `.gitignore` excluye los archivos `*.log`. Los registros de la simulación hay que guardarlos con otra extensión (por ejemplo `.txt` o `.csv`) para que se suban.
-- La numeración de `documento/fuentes-investigacion.md` es provisional; la final va en `documento/referencias.md`.
-- Hay dos fuentes para confirmar antes de entregar: NIST SP 800-92r1 todavía es un borrador (2023) y AlertGuardian es un preprint aceptado en ASE 2025.
+- El `.gitignore` excluye los archivos `*.log`. Guardamos los registros de la simulación como `.txt` para incluirlos en el repositorio.
+- `documento/referencias.md` conserva por ahora la numeración de `documento/fuentes-investigacion.md`. Al integrar el paper debemos comprobar que cada cita corresponda a la fuente correcta.
+- Antes de entregar, confirmar el estado de publicación de NIST SP 800-92r1 y distinguir las citas del borrador de 2023 de las de la guía de 2006.
+- Completar los datos bibliográficos de AlertGuardian, distinguiendo la versión de conferencia del preprint.
+- Mantener los registros originales y señalar las limitaciones de la experiencia al presentar los resultados.
