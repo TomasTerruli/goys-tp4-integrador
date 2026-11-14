@@ -10,9 +10,9 @@ Primera búsqueda de fuentes sobre calidad de alertas, SLI/SLO y fatiga de alarm
 |-----------------------------|---------|
 | Artículo académico | [10], [11], [12], [13], [14] |
 | Documentación técnica oficial | [1], [5], [15] |
-| RFC o estándar | [6], [7], [8], [9] |
+| RFC o estándar | [6], [7], [8], [9], [16] |
 | Avances de los últimos tres años | [9] (2023), [12] (2025), [13] (2024), [14] (2025) |
-| Seguridad y protección de registros | [8], [9], [12] |
+| Seguridad y protección de registros | [8], [9], [12], [16] |
 
 | Tema | Fuentes |
 |------|---------|
@@ -69,9 +69,12 @@ Primera búsqueda de fuentes sobre calidad de alertas, SLI/SLO y fatiga de alarm
 - **Para qué sirve:** es el estándar para enviar mensajes de eventos. En la parte de seguridad habla, entre otras cosas, de la reproducción de mensajes (*replay*), la entrega confiable, la integridad, la observación de los mensajes y la denegación de servicio. También define campos para indicar la calidad de la hora de cada mensaje, por ejemplo si el reloj estaba sincronizado (`timeQuality`, `isSynced`). Lo usamos para el apartado sobre cómo proteger los registros en los que se basan las alertas.
 
 **[9]** K. Scarfone y M. Souppaya, "Cybersecurity Log Management Planning Guide," NIST, Gaithersburg, MD, EE. UU., NIST SP 800-92r1 (Initial Public Draft), oct. 2023. doi: 10.6028/NIST.SP.800-92r1.ipd.
-- Versión final vigente: K. Kent y M. Souppaya, "Guide to Computer Security Log Management," NIST SP 800-92, sep. 2006. doi: 10.6028/NIST.SP.800-92.
-- **Tipo:** guía de un organismo de estándares (NIST).
-- **Para qué sirve:** la versión de 2006 define la gestión de registros como el proceso de generar, transmitir, guardar, analizar y descartar los registros de seguridad, y tiene apartados sobre protección y análisis de registros. También dice que la cantidad y variedad de registros creció mucho y que eso hace difícil analizarlos bien, lo que se conecta con la fatiga de alarmas. La revisión de 2023 es una guía para planificar la gestión de registros a nivel de toda la organización; todavía es un borrador, así que hay que citarla así.
+- **Tipo:** borrador de una guía de un organismo de estándares (NIST). Al 14/11/2026 sigue figurando como *Draft* en la página oficial; NIST todavía está procesando los comentarios públicos.
+- **Para qué sirve:** muestra la tendencia reciente: la revisión se enfoca en planificar la gestión de registros en toda la organización y deja afuera los detalles de implementación. Se usa en la sección de innovaciones y hay que citarla como borrador.
+
+**[16]** K. Kent y M. Souppaya, "Guide to Computer Security Log Management," NIST, Gaithersburg, MD, EE. UU., NIST SP 800-92, sep. 2006. doi: 10.6028/NIST.SP.800-92.
+- **Tipo:** guía de un organismo de estándares (NIST). Es la versión final vigente.
+- **Para qué sirve:** define la gestión de registros como el proceso de generar, transmitir, guardar, analizar y descartar los registros de seguridad, y tiene un apartado sobre su protección. Se usa en el apartado de seguridad de los registros.
 
 ### Artículos académicos
 
@@ -91,7 +94,7 @@ Primera búsqueda de fuentes sobre calidad de alertas, SLI/SLO y fatiga de alarm
 - **Tipo:** artículo de conferencia con revisión por pares.
 - **Para qué sirve:** presenta COLA, que agrupa las alertas que vienen de una misma falla. Para eso combina correlaciones entre alertas con un modelo de lenguaje que usa los procedimientos operativos de cada alerta. Es un ejemplo de innovación reciente para reducir notificaciones sin perder información.
 
-**[14]** G. Yu *et al.*, "AlertGuardian: Intelligent alert life-cycle management for large-scale cloud systems," en *Proc. 40th IEEE/ACM Int. Conf. Automated Software Engineering (ASE 2025)*, Seúl, Corea del Sur, nov. 2025, pp. 1–12. Preprint: arXiv:2601.14912, ene. 2026. doi: 10.48550/arXiv.2601.14912.
+**[14]** G. Yu *et al.*, "AlertGuardian: Intelligent alert life-cycle management for large-scale cloud systems," en *Proc. 40th IEEE/ACM Int. Conf. Automated Software Engineering (ASE 2025)*, Seúl, Corea del Sur, 2025, pp. 1–12. Versión preprint: arXiv:2601.14912 [cs.DC], ene. 2026. doi: 10.48550/arXiv.2601.14912.
 - **Tipo:** artículo de conferencia (ASE 2025), con versión preprint en arXiv.
 - **Para qué sirve:** trata la fatiga de alertas en todo el ciclo de vida de la alerta: se crea la regla, se dispara, alguien la atiende y después se mejora la regla. Usa modelos de grafos para filtrar ruido, modelos de lenguaje para resumir alertas y agentes para mejorar las reglas. Señala que herramientas como Alertmanager se enfocan en configurar y disparar reglas, pero no en si esas reglas son buenas. Representa lo más nuevo del área.
 
@@ -101,19 +104,21 @@ Primera búsqueda de fuentes sobre calidad de alertas, SLI/SLO y fatiga de alarm
 
 ## 3. Estado de verificación
 
-Revisión del 13 de noviembre de 2026, contra registros oficiales (RFC Editor, NIST, dblp, actas de conferencias, arXiv y las páginas de los propios autores).
+Revisiones del 13 y el 14 de noviembre de 2026, contra registros oficiales (RFC Editor, NIST, dblp, actas de conferencias, arXiv y las páginas de los propios autores).
 
 | Fuente | Estado | Comentario |
 |--------|--------|------------|
 | [1], [2], [4], [5], [6], [8], [12], [13] | Confirmadas | Datos y contenido usado confirmados. |
 | [3] | Confirmada | Autores confirmados en la página oficial del capítulo: "Written by Chris Jones, John Wilkes, and Niall Murphy with Cody Smith". |
 | [7] | Confirmada | DOI 10.17487/RFC7799 confirmado en la ficha del RFC Editor. |
-| [9] | Confirmada | La revisión 1 sigue siendo borrador: citarla así. |
+| [9] | Confirmada | Al 14/11/2026 la revisión 1 sigue figurando como borrador (*Draft*, 11/10/2023) en la página oficial de NIST: citarla así. |
+| [16] | Confirmada | Guía final de 2006, separada de [9] en la revisión del 14/11/2026 porque el texto cita las dos versiones para cosas distintas. |
 | [10] | Confirmada | Se usa solo la definición de fatiga de alarmas y sus causas. Se sacó la afirmación sobre retardos antes de alarmar, porque solo la encontramos en reseñas y no en el artículo. |
 | [11] | Confirmada | Páginas 162–171 confirmadas en dblp y en el índice de las actas. El DOI lo tomamos de un enlace a la ACM Digital Library: conviene abrir https://doi.org/10.1145/3377813.3381363 una vez. |
-| [14] | Parcialmente verificada | Publicado en ASE 2025 (Seúl, 16–20 de noviembre de 2025), pp. 1–12, según el registro de la conferencia. No encontramos el DOI de la versión de las actas; por ahora se cita también el preprint de arXiv. |
+| [14] | Parcialmente verificada | Confirmados: autores, título, publicación en ASE 2025 (IEEE, pp. 1–12) y todas las cifras usadas, en el resumen del preprint. Falta: el DOI de la versión de las actas no aparece en ningún registro consultado; por eso se cita también el preprint con su DOI de arXiv. |
 | [15] | Confirmada | Fuente nueva (documentación oficial de Prometheus). Se agregó porque la tabla comparativa necesita un ejemplo de reducción de ruido en una herramienta real. |
 
 Antes de entregar:
 - [4], [5], [15]: volver a mirar las páginas, porque son documentos en línea que pueden cambiar.
-- [9]: fijarse si NIST publicó la versión final de SP 800-92r1.
+- [9]: volver a fijarse si NIST publicó la versión final de SP 800-92r1.
+- [14]: buscar el DOI de las actas de ASE 2025 en IEEE Xplore.

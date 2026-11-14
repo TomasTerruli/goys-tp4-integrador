@@ -2,7 +2,11 @@
 
 Realizamos una revisión narrativa sobre criterios de alertado y detección de fallas. Organizamos las fuentes alrededor de cuatro temas: observabilidad y monitoreo, objetivos de servicio, calidad de las alertas y seguridad de los registros.
 
-El relevamiento quedó documentado en fuentes-investigacion.md. Para cada fuente registramos sus datos bibliográficos, el tipo de publicación, su relación con la pregunta de investigación y su estado de verificación.
+Buscamos las fuentes con un buscador web general, usando términos en inglés como *alerting on SLOs*, *alert fatigue*, *alert storm*, *alert aggregation*, *Prometheus alerting rules*, *ICMP*, *active and passive measurement*, *syslog security* y *log management*. Cuando encontrábamos una fuente, la abríamos en su sitio original: el RFC Editor para los RFC, el sitio de NIST para sus guías, los sitios oficiales de Google SRE, Prometheus y OpenTelemetry, y la ACM Digital Library, dblp, arXiv y las páginas de las conferencias para los artículos. No usamos bases como Google Scholar, SciELO o Redalyc.
+
+Para elegir las fuentes tuvimos en cuenta cuatro criterios: que tuvieran relación directa con la pregunta de investigación; que el autor o la institución fueran identificables; que los artículos estuvieran revisados por pares o aceptados en una conferencia; y que fueran de los últimos tres años cuando las usábamos para hablar de innovaciones. Siempre preferimos el documento original antes que una reseña. Por eso descartamos una afirmación sobre fatiga de alarmas que solo encontramos en reseñas y no pudimos comprobar en el artículo original.
+
+El relevamiento quedó documentado en `documento/fuentes-investigacion.md`. Para cada fuente registramos sus datos bibliográficos, el tipo de publicación, su relación con la pregunta de investigación y su estado de verificación.
 
 El conjunto reúne documentación oficial de OpenTelemetry y Prometheus, capítulos de los libros de Google sobre SRE, documentos RFC y NIST, y artículos académicos. La documentación técnica aporta conceptos y ejemplos de funcionamiento; los artículos permiten discutir problemas, resultados e innovaciones.
 

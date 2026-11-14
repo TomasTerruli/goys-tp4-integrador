@@ -29,7 +29,8 @@ Registro de los aportes de cada integrante, las decisiones tomadas y las tareas 
 | 13/11/2026 | Revisé los nueve registros y documenté la metodología y la comparación de criterios en `demo/analisis.md`. Presenté `sostenida-01.txt` por separado como prueba exploratoria y expresé la demora en comprobaciones, porque los registros no tienen marcas temporales. | Tomás | `801dac3` |
 | 13/11/2026 | Redacté el estado del arte, la tabla comparativa, las innovaciones y los desafíos de seguridad en `documento/estado-del-arte.md`. Actualicé la verificación de las fuentes y agregué la documentación de Alertmanager. Revisé los registros y dejé opciones para interpretar qué interrupciones requieren intervención en `documento/revision-protocolo.md`. | Pilar | `d311d8a` |
 | 14/11/2026 | Adapté la introducción al enfoque de alertas, preparé la estructura del artículo, actualicé el alcance según las pruebas realizadas y organicé las referencias provisionales. | Martina | `aca7630`, `bae6c3e` |
-| 14/11/2026 | Preparé el borrador de la metodología bibliográfica a partir del relevamiento documentado. Queda pendiente la revisión de Pilar. | Martina | Consultar historial de Git |
+| 14/11/2026 | Preparé el borrador de la metodología bibliográfica a partir del relevamiento documentado. Queda pendiente la revisión de Pilar. | Martina | `dd6561e` |
+| 14/11/2026 | Revisión académica. Completé en `documento/metodologia-bibliografica.md` cómo buscamos y elegimos las fuentes. Comprobé que las citas del artículo coincidan con `documento/referencias.md` y corregí la lista de la introducción. Separé la guía NIST de 2006 ([16]) del borrador de 2023 ([9]), que sigue sin versión final. Completé AlertGuardian distinguiendo conferencia y preprint, y verifiqué en las fuentes originales las cifras de COLA, AlertGuardian y Zhao *et al.* En `documento/estado-del-arte.md` aclaré que Prometheus evalúa las reglas y Alertmanager gestiona las notificaciones, y saqué afirmaciones absolutas de la tabla. Elegí cinco hallazgos para el póster en `poster/hallazgos.md`. | Pilar | rama `grupo-07` |
 
 ## Decisiones tomadas
 
@@ -55,7 +56,7 @@ Registro de los aportes de cada integrante, las decisiones tomadas y las tareas 
 - [x] Martina: diseñar la red en GNS3 y documentar el procedimiento en `demo/README.md`, tarea que inicialmente estaba asignada a Tomás.
 - [x] Martina: adaptar la introducción al objetivo, preparar la estructura del artículo y crear el listado provisional de referencias.
 - [x] Martina: preparar el borrador de la metodología bibliográfica en `documento/metodologia-bibliografica.md`.
-- [ ] Pilar: revisar que la metodología bibliográfica describa la búsqueda y selección que realizó.
+- [x] Pilar: revisar que la metodología bibliográfica describa la búsqueda y selección que realizó.
 
 ### Ronda 2 — investigar y obtener resultados
 
@@ -67,7 +68,8 @@ Registro de los aportes de cada integrante, las decisiones tomadas y las tareas 
 
 ### Ronda 3 — revisar y entregar
 
-- [ ] Pilar: revisar citas, referencias, precisión del contenido y aspectos de seguridad; resolver las verificaciones bibliográficas pendientes y seleccionar los hallazgos principales para la infografía.
+- [x] Pilar: revisar citas, referencias, precisión del contenido y aspectos de seguridad; resolver las verificaciones bibliográficas pendientes y seleccionar los hallazgos principales para la infografía.
+- [ ] Pilar: buscar en IEEE Xplore el DOI de AlertGuardian en las actas de ASE 2025 (no aparece en los registros consultados).
 - [ ] Martina: comprobar que el proyecto GNS3 se pueda importar y reproducir; preparar la demo de 3–5 minutos y verificar que funcione sin internet; dejar listas las configuraciones, capturas y registros.
 - [ ] Tomás: integrar y dar formato al paper, armar el póster A1 con los aportes del grupo y exportar ambos a PDF.
 - [ ] Tomás: actualizar README, bitácora y checklist; comprobar que estén todos los entregables y sus archivos editables.
@@ -77,7 +79,7 @@ Registro de los aportes de cada integrante, las decisiones tomadas y las tareas 
 
 - El `.gitignore` excluye los archivos `*.log`. Guardamos los registros de la simulación como `.txt` para incluirlos en el repositorio.
 - `documento/referencias.md` conserva por ahora la numeración de `documento/fuentes-investigacion.md`. Al integrar el paper debemos comprobar que cada cita corresponda a la fuente correcta.
-- Antes de entregar, confirmar el estado de publicación de NIST SP 800-92r1 y distinguir las citas del borrador de 2023 de las de la guía de 2006.
-- Completar los datos bibliográficos de AlertGuardian, distinguiendo la versión de conferencia del preprint.
-- La metodología bibliográfica es un borrador pendiente de revisión de Pilar antes de integrarlo a la versión final del artículo.
+- NIST SP 800-92r1 sigue como borrador al 14/11/2026. La guía de 2006 se cita como [16] y el borrador de 2023 como [9]. Volver a fijarse antes de entregar.
+- AlertGuardian se cita con la versión de conferencia (ASE 2025) y el preprint de arXiv. Falta el DOI de las actas.
+- Al integrar el paper, usar `documento/referencias.md` (16 fuentes) como lista final y sacar las listas parciales de cada archivo.
 - Mantener los registros originales y señalar las limitaciones de la experiencia al presentar los resultados.

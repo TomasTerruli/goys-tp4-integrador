@@ -28,6 +28,8 @@ Listado de trabajo. Conservamos la numeración de fuentes-investigacion.md para 
 
 [13] J. Kuang *et al.*, "Knowledge-aware alert aggregation in large-scale cloud systems: A hybrid approach," en *Proc. 46th Int. Conf. Software Engineering: Software Engineering in Practice (ICSE-SEIP '24)*, Lisboa, Portugal, 2024. doi: 10.1145/3639477.3639745.
 
-[14] G. Yu *et al.*, "AlertGuardian: Intelligent alert life-cycle management for large-scale cloud systems," en *Proc. 40th IEEE/ACM Int. Conf. Automated Software Engineering (ASE 2025)*, Seúl, Corea del Sur, nov. 2025, pp. 1–12. Preprint: arXiv:2601.14912, ene. 2026. doi: 10.48550/arXiv.2601.14912.
+[14] G. Yu *et al.*, "AlertGuardian: Intelligent alert life-cycle management for large-scale cloud systems," en *Proc. 40th IEEE/ACM Int. Conf. Automated Software Engineering (ASE 2025)*, Seúl, Corea del Sur, 2025, pp. 1–12. Versión preprint: arXiv:2601.14912 [cs.DC], ene. 2026. doi: 10.48550/arXiv.2601.14912.
 
 [15] Prometheus Authors, "Alertmanager," *Prometheus Documentation*. [En línea]. Disponible: https://prometheus.io/docs/alerting/latest/alertmanager/
+
+[16] K. Kent y M. Souppaya, "Guide to Computer Security Log Management," NIST, Gaithersburg, MD, EE. UU., NIST SP 800-92, sep. 2006. doi: 10.6028/NIST.SP.800-92.
