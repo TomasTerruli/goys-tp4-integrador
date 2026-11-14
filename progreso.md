@@ -27,9 +27,10 @@
 |-------|-------------|-------|--------|
 | 09/11/2026 | Borrador de la introducción con una referencia oficial (OpenTelemetry) en `documento/introduccion.md` | Martina | `0bdfa90` |
 | 09/11/2026 | Revisión y merge del PR #1 (introducción) | Tomás | `855296a` |
-| 12/11/2026 | Ronda 1, paso 1: delimitación del tema. Actualicé el README con título, integrantes, modalidad, objetivo, alcance y entregables. Creé `documento/alcance.md` con la pregunta, los objetivos, los términos que usamos y los límites. Busqué y verifiqué 14 fuentes (documentación oficial, RFC/estándares y artículos académicos) y anoté sus datos y para qué sirve cada una en `documento/fuentes-investigacion.md` | Pilar | rama `pilar-delimitacion-tema` |
+| 12/11/2026 | Ronda 1, paso 1: delimitación del tema. Actualicé el README con título, integrantes, modalidad, objetivo, alcance y entregables. Creé `documento/alcance.md` con la pregunta, los objetivos, los términos que usamos y los límites. Busqué y verifiqué 14 fuentes (documentación oficial, RFC/estándares y artículos académicos) y anoté sus datos y para qué sirve cada una en `documento/fuentes-investigacion.md` | Pilar | `61eb53c` |
 | 13/11/2026 | Armé la red en GNS3 y ejecuté nueve pruebas de conectividad. Guardé los registros, dos capturas, el proyecto portable y las instrucciones para reproducirlo. | Martina | Consultar historial de Git |
 | 13/11/2026 | Revisé `demo/README.md` y los nueve registros de `demo/resultados/`. Documenté la metodología y comparé los dos criterios (primer fallo y tres fallos consecutivos, una notificación por incidente) en `demo/analisis.md`. Separé `sostenida-01.txt` como prueba exploratoria y expresé la demora en comprobaciones, porque los registros no tienen marcas temporales | Tomás | rama `grupo-07` |
+| 13/11/2026 | Ronda 2: leí y verifiqué las fuentes contra registros oficiales y actualicé su estado en `documento/fuentes-investigacion.md` (agregué [15], la documentación de Alertmanager). Redacté las secciones 2 a 4 del artículo en `documento/estado-del-arte.md`: estado del arte con tabla comparativa, innovaciones emergentes, oportunidades, desafíos y seguridad de los registros. Revisé el protocolo en `documento/revision-protocolo.md`: recalculé los nueve registros (coinciden con `demo/analisis.md`) y dejé opciones para definir qué interrupción requiere intervención | Pilar | rama `grupo-07` |
 
 ##  Decisiones tomadas
 
@@ -53,7 +54,7 @@
 - [ ] Martina: adaptar la introducción al objetivo, armar el índice según la modalidad B, explicar cómo buscamos y elegimos las fuentes y crear `documento/referencias.md`
 
 ### Ronda 2 — investigar y obtener resultados
-- [ ] Pilar: leer y verificar las fuentes; redactar alertas accionables, fatiga de alarmas, SLI/SLO, innovaciones recientes, desafíos y seguridad; revisar los criterios del protocolo
+- [x] Pilar: leer y verificar las fuentes; redactar alertas accionables, fatiga de alarmas, SLI/SLO, innovaciones recientes, desafíos y seguridad; revisar los criterios del protocolo (`documento/estado-del-arte.md` y `documento/revision-protocolo.md`)
 - [x] Martina: armar la topología y realizar nueve ejecuciones (tres normales, tres intentos de corte breve, dos cortes sostenidos y una ejecución exploratoria); guardar registros, capturas y proyecto
 - [x] Tomás: documentar la metodología y comparar los dos criterios sobre los registros: notificaciones, incidentes detectados y demora de detección (`demo/analisis.md`)
 - [ ] Los tres: definir qué interrupción requiere intervención, interpretar los resultados y acordar las conclusiones

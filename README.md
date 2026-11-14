@@ -7,9 +7,9 @@
 
 | Integrante | Usuario de GitHub | Qué hace cada uno |
 |------------|-------------------|-------------------|
-| Pilar Giannelli | `pilargiannelli` | Busca y revisa las fuentes, redacta la parte de investigación |
-| Tomás Terruli | `TomasTerruli` | Diseña, arma y mide la mini simulación |
-| Martina Castellani | `Marticaste144` | Organiza e integra el artículo, el póster y el repositorio |
+| Pilar Giannelli | `pilargiannelli` | Busca y revisa las fuentes, redacta la parte de investigación y hace la revisión académica |
+| Tomás Terruli | `TomasTerruli` | Analiza los resultados de la simulación, integra el artículo, arma el póster y cierra el repositorio |
+| Martina Castellani | `Marticaste144` | Arma y ejecuta la simulación, organiza el artículo y cierra la demo |
 
 Los resultados los interpretamos entre los tres y las conclusiones las acordamos juntos.
 
@@ -55,10 +55,13 @@ El detalle está en [`documento/alcance.md`](documento/alcance.md).
 | [`documento/alcance.md`](documento/alcance.md) | Pregunta, objetivos y límites |
 | [`documento/fuentes-investigacion.md`](documento/fuentes-investigacion.md) | Fuentes que encontramos, sus datos y para qué nos sirve cada una |
 | [`documento/introduccion.md`](documento/introduccion.md) | Borrador de la introducción |
+| [`documento/estado-del-arte.md`](documento/estado-del-arte.md) | Secciones 2 a 4 del artículo: estado del arte, innovaciones, oportunidades y desafíos |
+| [`documento/revision-protocolo.md`](documento/revision-protocolo.md) | Revisión de los criterios y los datos de la simulación |
+| [`demo/README.md`](demo/README.md) y [`demo/analisis.md`](demo/analisis.md) | Procedimiento de la simulación y comparación de los criterios |
 
 ## Cómo trabajamos en GitHub
 
-El orden es Pilar → Tomás → Martina, y se repite en las tres rondas (organizar y preparar; investigar y obtener resultados; revisar y entregar). En cada turno, el que le toca actualiza su copia de `main`, crea una rama para su tarea, anota lo que hizo en `progreso.md`, hace su commit, abre un PR hacia `main` de `TomasTerruli/goys-tp4-integrador` y otro integrante lo revisa y hace el merge.
+Trabajamos en un único fork del grupo (`TomasTerruli/goys-tp4-integrador`) y en una sola rama compartida, `grupo-07`. El orden de turnos es Pilar → Tomás → Martina en las tres rondas. Antes de empezar, cada uno trae los cambios de los demás con `git pull origin grupo-07`; al terminar, hace su propio commit y lo sube a la misma rama. Cuando el trabajo esté completo, se abre un único Pull Request desde `grupo-07` hacia el repositorio de la cátedra, salvo que la cátedra indique otra forma de entrega.
 
 ---
 

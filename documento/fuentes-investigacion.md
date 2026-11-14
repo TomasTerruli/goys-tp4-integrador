@@ -9,9 +9,9 @@ Primera búsqueda de fuentes sobre calidad de alertas, SLI/SLO y fatiga de alarm
 | Requisito de la modalidad B | Fuentes |
 |-----------------------------|---------|
 | Artículo académico | [10], [11], [12], [13], [14] |
-| Documentación técnica oficial | [1], [5] |
+| Documentación técnica oficial | [1], [5], [15] |
 | RFC o estándar | [6], [7], [8], [9] |
-| Avances de los últimos tres años | [9] (2023), [12] (2025), [13] (2024), [14] (2026) |
+| Avances de los últimos tres años | [9] (2023), [12] (2025), [13] (2024), [14] (2025) |
 | Seguridad y protección de registros | [8], [9], [12] |
 
 | Tema | Fuentes |
@@ -20,6 +20,7 @@ Primera búsqueda de fuentes sobre calidad de alertas, SLI/SLO y fatiga de alarm
 | Alertas accionables | [2], [4] |
 | SLI / SLO | [3], [4] |
 | Criterios de activación (primer fallo o duración mínima) | [4], [5] |
+| Reducción de ruido en herramientas (agrupación, inhibición, silencios) | [15] |
 | Fatiga de alarmas y tormentas de alertas | [10], [11], [12] |
 | Innovaciones recientes | [13], [14] |
 | Conectividad ICMP (base de la simulación) | [6], [7] |
@@ -65,7 +66,7 @@ Primera búsqueda de fuentes sobre calidad de alertas, SLI/SLO y fatiga de alarm
 
 **[8]** R. Gerhards, "The Syslog Protocol," RFC 5424, mar. 2009. doi: 10.17487/RFC5424.
 - **Tipo:** RFC (Proposed Standard).
-- **Para qué sirve:** es el estándar para enviar mensajes de eventos. En la parte de seguridad habla, entre otras cosas, de la reproducción de mensajes (*replay*), la entrega confiable, la integridad, la observación de los mensajes y la denegación de servicio. Lo usamos para el apartado sobre cómo proteger los registros en los que se basan las alertas.
+- **Para qué sirve:** es el estándar para enviar mensajes de eventos. En la parte de seguridad habla, entre otras cosas, de la reproducción de mensajes (*replay*), la entrega confiable, la integridad, la observación de los mensajes y la denegación de servicio. También define campos para indicar la calidad de la hora de cada mensaje, por ejemplo si el reloj estaba sincronizado (`timeQuality`, `isSynced`). Lo usamos para el apartado sobre cómo proteger los registros en los que se basan las alertas.
 
 **[9]** K. Scarfone y M. Souppaya, "Cybersecurity Log Management Planning Guide," NIST, Gaithersburg, MD, EE. UU., NIST SP 800-92r1 (Initial Public Draft), oct. 2023. doi: 10.6028/NIST.SP.800-92r1.ipd.
 - Versión final vigente: K. Kent y M. Souppaya, "Guide to Computer Security Log Management," NIST SP 800-92, sep. 2006. doi: 10.6028/NIST.SP.800-92.
@@ -76,7 +77,7 @@ Primera búsqueda de fuentes sobre calidad de alertas, SLI/SLO y fatiga de alarm
 
 **[10]** M. Cvach, "Monitor alarm fatigue: An integrative review," *Biomedical Instrumentation & Technology*, vol. 46, no. 4, pp. 268–277, jul.–ago. 2012. doi: 10.2345/0899-8205-46.4.268.
 - **Tipo:** revisión integrativa con revisión por pares (72 artículos).
-- **Para qué sirve:** de acá viene el concepto de fatiga de alarmas, en el monitoreo de pacientes. Cuando hay demasiadas alarmas, y muchas son falsas o no importan, el personal se satura y deja de reaccionar. Entre las recomendaciones aparece poner retardos cortos antes de que suene la alarma, pero sin alargarlos tanto que se vuelva peligroso. Es el mismo equilibrio entre ruido y demora que estudiamos nosotros. La usamos como antecedente del concepto, no como evidencia sobre redes.
+- **Para qué sirve:** de acá viene el concepto de fatiga de alarmas, en el monitoreo de pacientes. Cuando hay demasiadas alarmas, y muchas son falsas o no importan, el personal se satura y deja de reaccionar. La revisión relaciona la fatiga con una alta tasa de falsas alarmas, un bajo valor predictivo positivo, la falta de estandarización y la cantidad de equipos que alarman. La usamos como antecedente del concepto, no como evidencia sobre redes.
 
 **[11]** N. Zhao *et al.*, "Understanding and handling alert storm for online service systems," en *Proc. ACM/IEEE 42nd Int. Conf. Software Engineering: Software Engineering in Practice (ICSE-SEIP)*, 2020, pp. 162–171. doi: 10.1145/3377813.3381363.
 - **Tipo:** artículo de conferencia con revisión por pares, con datos reales de un banco comercial.
@@ -90,17 +91,29 @@ Primera búsqueda de fuentes sobre calidad de alertas, SLI/SLO y fatiga de alarm
 - **Tipo:** artículo de conferencia con revisión por pares.
 - **Para qué sirve:** presenta COLA, que agrupa las alertas que vienen de una misma falla. Para eso combina correlaciones entre alertas con un modelo de lenguaje que usa los procedimientos operativos de cada alerta. Es un ejemplo de innovación reciente para reducir notificaciones sin perder información.
 
-**[14]** G. Yu *et al.*, "AlertGuardian: Intelligent alert life-cycle management for large-scale cloud systems," arXiv:2601.14912, ene. 2026 (aceptado en ASE 2025). doi: 10.48550/arXiv.2601.14912.
-- **Tipo:** preprint de un artículo aceptado en una conferencia.
+**[14]** G. Yu *et al.*, "AlertGuardian: Intelligent alert life-cycle management for large-scale cloud systems," en *Proc. 40th IEEE/ACM Int. Conf. Automated Software Engineering (ASE 2025)*, Seúl, Corea del Sur, nov. 2025, pp. 1–12. Preprint: arXiv:2601.14912, ene. 2026. doi: 10.48550/arXiv.2601.14912.
+- **Tipo:** artículo de conferencia (ASE 2025), con versión preprint en arXiv.
 - **Para qué sirve:** trata la fatiga de alertas en todo el ciclo de vida de la alerta: se crea la regla, se dispara, alguien la atiende y después se mejora la regla. Usa modelos de grafos para filtrar ruido, modelos de lenguaje para resumir alertas y agentes para mejorar las reglas. Señala que herramientas como Alertmanager se enfocan en configurar y disparar reglas, pero no en si esas reglas son buenas. Representa lo más nuevo del área.
 
-## 3. Lo que falta verificar
+**[15]** Prometheus Authors, "Alertmanager," *Prometheus Documentation*. [En línea]. Disponible: https://prometheus.io/docs/alerting/latest/alertmanager/
+- **Tipo:** documentación técnica oficial.
+- **Para qué sirve:** explica la parte de las notificaciones. Alertmanager recibe las alertas de Prometheus, elimina duplicados, las agrupa, las envía al destinatario que corresponde y permite silenciarlas o inhibirlas. La inhibición suprime avisos de ciertas alertas si ya hay otras disparadas, y los silencios los apagan durante un tiempo. Lo usamos en la tabla comparativa como ejemplo de reducción de ruido después de que la alerta se dispara.
 
-- [3]: los autores del capítulo (Jones, Wilkes, Murphy y Smith) los sacamos de un comentario del libro hecho por un SRE de Google; confirmarlos en la página del capítulo o en el libro.
-- [7]: abrir https://doi.org/10.17487/RFC7799 para confirmar el DOI (sigue el formato oficial de los RFC, pero no lo vimos impreso en la ficha).
-- [11]: abrir https://doi.org/10.1145/3377813.3381363 para confirmar el DOI (lo encontramos como enlace a la ACM Digital Library; las páginas 162–171 están confirmadas en dblp).
-- [14]: ver si ya salió la versión publicada en las actas de ASE 2025 y, si salió, citar esa con su DOI.
-- [9]: antes de entregar, fijarse si NIST ya publicó la versión final de SP 800-92r1.
-- [4], [5]: volver a mirar las páginas cuando redactemos, porque son documentos en línea que pueden cambiar.
-- [10]: confirmar en el texto completo lo de los retardos cortos antes de alarmar (lo sacamos de una reseña del artículo).
-- [10]: usarla solo como antecedente de la fatiga de alarmas y aclarar que viene del ámbito clínico.
+## 3. Estado de verificación
+
+Revisión del 13 de noviembre de 2026, contra registros oficiales (RFC Editor, NIST, dblp, actas de conferencias, arXiv y las páginas de los propios autores).
+
+| Fuente | Estado | Comentario |
+|--------|--------|------------|
+| [1], [2], [4], [5], [6], [8], [12], [13] | Confirmadas | Datos y contenido usado confirmados. |
+| [3] | Confirmada | Autores confirmados en la página oficial del capítulo: "Written by Chris Jones, John Wilkes, and Niall Murphy with Cody Smith". |
+| [7] | Confirmada | DOI 10.17487/RFC7799 confirmado en la ficha del RFC Editor. |
+| [9] | Confirmada | La revisión 1 sigue siendo borrador: citarla así. |
+| [10] | Confirmada | Se usa solo la definición de fatiga de alarmas y sus causas. Se sacó la afirmación sobre retardos antes de alarmar, porque solo la encontramos en reseñas y no en el artículo. |
+| [11] | Confirmada | Páginas 162–171 confirmadas en dblp y en el índice de las actas. El DOI lo tomamos de un enlace a la ACM Digital Library: conviene abrir https://doi.org/10.1145/3377813.3381363 una vez. |
+| [14] | Parcialmente verificada | Publicado en ASE 2025 (Seúl, 16–20 de noviembre de 2025), pp. 1–12, según el registro de la conferencia. No encontramos el DOI de la versión de las actas; por ahora se cita también el preprint de arXiv. |
+| [15] | Confirmada | Fuente nueva (documentación oficial de Prometheus). Se agregó porque la tabla comparativa necesita un ejemplo de reducción de ruido en una herramienta real. |
+
+Antes de entregar:
+- [4], [5], [15]: volver a mirar las páginas, porque son documentos en línea que pueden cambiar.
+- [9]: fijarse si NIST publicó la versión final de SP 800-92r1.
