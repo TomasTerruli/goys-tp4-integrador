@@ -32,7 +32,7 @@ Para cada criterio contamos cuántas notificaciones se emiten, cuántos incident
 
 ## Alcance
 
-- **Revisión bibliográfica:** observabilidad, estrategias de alertado, SLI/SLO, fatiga de alarmas, innovaciones de los últimos tres años, seguridad y protección de los registros, y desafíos. El artículo cita 10 fuentes verificadas: documentación oficial (OpenTelemetry y Prometheus), los libros de Google sobre SRE, los RFC 792 y 5424, la guía NIST SP 800-92 y tres artículos académicos (COLA, AlertGuardian y Tariq *et al.*). El relevamiento completo está en `documento/fuentes-investigacion.md`.
+- **Revisión bibliográfica:** observabilidad, estrategias de alertado, SLI/SLO, fatiga de alertas, seguridad y protección de los registros, cuatro trabajos de 2024 a 2026 (COLA, Zha *et al.*, AlertGuardian y Ndichu *et al.*) y dos productos (Keep y PagerDuty AIOps). El artículo cita 17 fuentes verificadas: documentación oficial, los libros de Google sobre SRE, RFC, la guía NIST SP 800-92 y artículos académicos. Los productos se describen a partir de su documentación: no los instalamos ni evaluamos. El relevamiento completo está en `documento/fuentes-investigacion.md`.
 - **Mini simulación:** dos equipos VPCS conectados a un switch en GNS3. Desde PC1 ejecutamos `ping` hacia PC2 (30 comprobaciones por prueba) y provocamos cortes manuales del enlace. Obtuvimos nueve registros: tres sin cortes, tres intentos de corte breve, dos cortes sostenidos y una ejecución exploratoria que presentamos aparte.
 - **Límites:** la simulación complementa la revisión y no se generaliza a redes reales. Los dos criterios se aplicaron manualmente sobre los registros; no implementamos un sistema de alertas automático.
 
@@ -41,6 +41,10 @@ El detalle está en [`documento/alcance.md`](documento/alcance.md).
 ## Resultado principal
 
 Sobre las ocho pruebas de la comparación principal (5 incidentes), avisar ante el primer fallo generó **5 notificaciones** y esperar tres fallos consecutivos generó **3**. La diferencia aparece solo en los cortes breves; en los sostenidos, los dos criterios detectaron el incidente y el segundo lo hizo dos comprobaciones más tarde. Ningún criterio es mejor en general: depende de qué interrupciones requieren intervención, algo que debería salir de un objetivo de servicio.
+
+## Relación con el estado del arte
+
+Nuestra práctica compara **cuándo activar un aviso** con dos reglas fijas aplicadas a mano sobre registros de ping. Los trabajos y productos revisados estudian **cómo relacionar, agrupar y depurar alertas que ya se activaron**, con resultados de sus autores que no reprodujimos. No implementamos alertas automáticas, agrupación ni IA. El detalle está en las secciones 4 y 6.2 del artículo y en [`demo/README.md`](demo/README.md).
 
 ## Entregables
 

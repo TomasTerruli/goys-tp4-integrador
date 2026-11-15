@@ -1,6 +1,6 @@
 # Checklist de entrega — Grupo 07
 
-> Copia completada de [`templates/checklist-entrega.md`](templates/checklist-entrega.md). Revisada el 14/11/2026.
+> Copia completada de [`templates/checklist-entrega.md`](templates/checklist-entrega.md). Revisada el 15/11/2026, después de las correcciones del profesor.
 > Volver a verificarla antes del ensayo (Clase 13) y de la Feria de Redes (Clase 14).
 
 ---
@@ -10,13 +10,17 @@
 - [x] Tiene carátula con datos del grupo (nombre, integrantes, modalidad, fecha)
 - [x] Sigue la estructura de la modalidad B (resumen, introducción, estado del arte, innovaciones, oportunidades y desafíos, conclusiones y referencias), con metodología y resultados de la simulación
 - [x] Extensión correcta: 7 páginas más la portada
-- [x] Incluye diagrama y tablas (Figura 1 y Tablas 1 a 3, numeradas)
+- [x] Incluye diagrama y tablas (Figura 1 y Tablas 1 a 4, numeradas)
 - [x] Las imágenes tienen leyenda y son legibles
-- [x] Tiene referencias bibliográficas: 10 (mínimo 6), con artículos académicos (COLA, AlertGuardian, Tariq *et al.*), documentación oficial (OpenTelemetry, Prometheus, NIST SP 800-92) y RFC (792 y 5424)
+- [x] Tiene referencias bibliográficas: 17 (mínimo 6), con artículos académicos (COLA, Zha *et al.*, AlertGuardian, Tariq *et al.*; Ndichu *et al.* como preprint), documentación oficial (OpenTelemetry, Prometheus, Alertmanager, Keep, PagerDuty, NIST SP 800-92) y RFC (792 y 5424)
+- [x] Analiza y compara los cuatro trabajos 2024–2026 pedidos por el profesor (sección 4.1 y Tabla 2), no solo en la bibliografía
+- [x] Incluye la tabla de Keep y PagerDuty AIOps con licencia, funciones, cómo ayudan, limitaciones y fuente oficial (Tabla 3)
+- [x] Diferencia lo que probamos de lo estudiado en otros trabajos y productos (sección 6.2)
+- [x] PDF revisado: sin tablas cortadas ni textos superpuestos, y las 17 citas del texto coinciden con la lista de referencias
 - [x] Formato de referencias consistente (IEEE, numeradas por orden de aparición)
 - [x] Formato de entrega: PDF, con editable en `documento/articulo-grupo07.docx`
-- [x] Alguien más que el autor lo leyó 
-- [x] Conclusiones aprobadas por los tres
+- [ ] Alguien más que el autor leyó la versión del 15/11 (Pilar y Martina)
+- [ ] Conclusiones de la versión del 15/11 aprobadas por los tres
 - [x] Está subido al repositorio del grupo
 
 ## 🖼️ Póster — `poster/poster-grupo07.pdf`
@@ -25,11 +29,13 @@
 - [x] Está diseñado para ser autocontenido
 - [x] Incluye título, grupo, objetivo, metodología, resultados principales y conclusiones
 - [x] Tiene diagrama de la topología y un mapa de las 240 comprobaciones generado desde los registros reales
-- [x] Letra legible: títulos de 30 pt o más y textos de 21–24 pt; la nota al pie y el texto del pie quedaron en 16–17 pt (menos que los 20 pt sugeridos): revisar en la prueba A3
+- [x] Letra legible: títulos de 27 pt o más, textos de 21–24 pt y ningún texto por debajo de 20 pt
+- [x] Bloque visible de investigaciones 2024–2026 y productos reales, con la aclaración de que sus cifras no son nuestras
+- [x] Las limitaciones de la experiencia están en un recuadro visible, junto a los resultados
 - [x] Usa tres colores con significado fijo (azul: estructura; naranja: C1; verde azulado: C2) y una sola tipografía (Inter, incluida en `poster/fonts/`)
 - [x] Está en el repositorio en formato editable (`poster-grupo07.html`) + PDF
 - [x] Código QR al repositorio (rama `grupo-07`) comprobado
-- [x] Opcional: versión impresa lista para la feria (hacer antes una prueba en A3)
+- [ ] Opcional: versión impresa lista para la feria (el póster cambió el 15/11: volver a imprimir la prueba en A3)
 
 ## 💻 Demo / Estación interactiva — responsable: Martina
 
@@ -49,7 +55,7 @@
 - [x] Póster en formato editable + PDF
 - [x] Documento en PDF + editable
 - [x] No hay archivos temporales, binarios innecesarios ni contraseñas
-- [x] DOI de AlertGuardian agregado si se encuentra (Pilar)
+- [x] Referencias revisadas por Pilar (AlertGuardian citado con las actas de ASE 2025 y el DOI del preprint de arXiv)
 - [x] Un único PR desde `grupo-07` hacia `rodriguezemautn/goys-tp4-integrador` (`main`), sin merge
 
 ## 👥 Presentación grupal
@@ -57,8 +63,10 @@
 - [ ] Roles definidos: quién explica el póster, quién maneja la demo, quién responde preguntas técnicas
 - [ ] Presentación ensayada al menos 1 vez con cronómetro
 - [ ] Saben explicar el proyecto en 30 segundos
-- [ ] Preparados para preguntas del docente: decisiones técnicas, alternativas, qué harían diferente
-- [ ] Tienen una respuesta para "¿cómo se vincula esto con seguridad?" (registros confiables y fatiga de alertas en los SOC, sección 3.2 del artículo)
+- [ ] Preparados para preguntas del docente: por qué modalidad B, qué es observabilidad, qué medimos, qué significan C1 y C2, por qué tres fallos, limitaciones y relación con las innovaciones
+- [ ] Los tres leyeron las partes centrales de los cuatro trabajos (problema, propuesta, resultados y limitaciones) y saben qué hacen Keep y PagerDuty AIOps
+- [ ] Cada uno ensayó la demo completa en la computadora de la presentación
+- [ ] Tienen una respuesta para "¿cómo se vincula esto con seguridad?" (registros confiables y fatiga de alertas en los SOC, secciones 3.3 y 5.2 del artículo)
 
 ## 🎒 Logística — día de la feria
 

@@ -38,16 +38,16 @@
   /* ---------- cabecera ---------- */
   header { background: var(--ink); color: #fff; padding: 11mm 28mm 9mm; position: relative; }
   .tags { display: flex; gap: 4mm; margin-bottom: 5mm; }
-  .tag { font-size: 18pt; font-weight: 600; letter-spacing: .5pt; padding: 1.6mm 4.5mm; border: .6mm solid rgba(255,255,255,.45); border-radius: 20mm; }
-  h1 { font-size: 66pt; font-weight: 800; line-height: 1.02; letter-spacing: -1.5pt; }
+  .tag { font-size: 20pt; font-weight: 600; letter-spacing: .5pt; padding: 1.6mm 4.5mm; border: .6mm solid rgba(255,255,255,.45); border-radius: 20mm; }
+  h1 { font-size: 60pt; font-weight: 800; line-height: 1.02; letter-spacing: -1.5pt; }
   h1 .arrow { color: var(--c1); }
   .subtitle { font-size: 30pt; font-weight: 400; opacity: .85; margin-top: 4mm; }
   .authors { font-size: 25pt; margin-top: 4mm; }
   .authors span { opacity: .7; }
 
-  main { flex: 1; padding: 8mm 28mm 0; display: flex; flex-direction: column; gap: 5mm; }
-  h2 { font-size: 15pt; font-weight: 800; letter-spacing: 2.5pt; text-transform: uppercase; color: var(--muted); margin-bottom: 3mm; display: flex; align-items: center; gap: 4mm; }
-  h2 .num { background: var(--ink); color: #fff; border-radius: 50%; width: 11mm; height: 11mm; display: inline-flex; align-items: center; justify-content: center; letter-spacing: 0; font-size: 15pt; }
+  main { flex: 1; padding: 8mm 28mm 0; display: flex; flex-direction: column; gap: 3.8mm; }
+  h2 { font-size: 20pt; font-weight: 800; letter-spacing: 2.5pt; text-transform: uppercase; color: var(--muted); margin-bottom: 3mm; display: flex; align-items: center; gap: 4mm; }
+  h2 .num { background: var(--ink); color: #fff; border-radius: 50%; width: 12mm; height: 12mm; display: inline-flex; align-items: center; justify-content: center; letter-spacing: 0; font-size: 18pt; }
   h3 { font-size: 34pt; font-weight: 800; line-height: 1.1; margin-bottom: 4mm; letter-spacing: -.4pt; }
   .panel { background: var(--mist); border-radius: 6mm; padding: 6mm 9mm; }
 
@@ -56,11 +56,11 @@
   .side { border-radius: 6mm; padding: 6mm 8mm; color: #fff; }
   .side.early { background: var(--c1); }
   .side.late { background: var(--c2); }
-  .side .k { font-size: 17pt; font-weight: 800; letter-spacing: 2pt; text-transform: uppercase; opacity: .9; }
+  .side .k { font-size: 20pt; font-weight: 800; letter-spacing: 2pt; text-transform: uppercase; opacity: .9; }
   .side .v { font-size: 30pt; font-weight: 800; line-height: 1.12; margin: 2mm 0 3mm; }
   .side p { font-size: 22pt; }
   .question { background: var(--ink); color: #fff; border-radius: 6mm; padding: 6mm 9mm; display: flex; flex-direction: column; justify-content: center; text-align: center; }
-  .question .k { font-size: 17pt; font-weight: 800; letter-spacing: 2pt; text-transform: uppercase; opacity: .65; margin-bottom: 3mm; }
+  .question .k { font-size: 20pt; font-weight: 800; letter-spacing: 2pt; text-transform: uppercase; opacity: .65; margin-bottom: 3mm; }
   .question p { font-size: 28pt; font-weight: 600; line-height: 1.22; }
 
   /* ---------- método ---------- */
@@ -83,7 +83,7 @@
   .k1 .badge { background: var(--c1); } .k2 .badge { background: var(--c2); }
   .crit .head b { font-size: 25pt; font-weight: 800; line-height: 1.1; display: block; }
   .strip { display: flex; gap: 1.6mm; }
-  .strip i { font-style: normal; flex: 1; height: 11mm; border-radius: 2mm; background: #E4E8EE; display: flex; align-items: center; justify-content: center; font-size: 19pt; font-weight: 800; color: var(--muted); }
+  .strip i { font-style: normal; flex: 1; height: 11mm; border-radius: 2mm; background: #E4E8EE; display: flex; align-items: center; justify-content: center; font-size: 20pt; font-weight: 800; color: var(--muted); }
   .strip i.f { background: var(--ink); color: #fff; }
   .k1 .strip i.hit { outline: 1.4mm solid var(--c1); outline-offset: .6mm; }
   .k2 .strip i.hit { outline: 1.4mm solid var(--c2); outline-offset: .6mm; }
@@ -91,7 +91,7 @@
   /* ---------- resultados ---------- */
   .results { background: var(--mist); border-radius: 6mm; padding: 6mm 9mm 5mm; }
   .results-top { display: flex; justify-content: space-between; align-items: flex-end; gap: 8mm; margin-bottom: 3mm; }
-  .legend { display: flex; gap: 6mm; font-size: 19pt; color: var(--muted); align-items: center; flex-wrap: wrap; justify-content: flex-end; }
+  .legend { display: flex; gap: 6mm; font-size: 20pt; color: var(--muted); align-items: center; flex-wrap: wrap; justify-content: flex-end; }
   .legend span { display: inline-flex; align-items: center; gap: 2mm; }
   .sw { width: 6mm; height: 6mm; border-radius: 1mm; display: inline-block; }
   .map .ok { fill: #D9DEE6; } .map .fail { fill: var(--ink); }
@@ -101,11 +101,12 @@
   .map .axis { font: 400 7px Inter, Arial, sans-serif; fill: var(--muted); }
   .map .d1 { fill: var(--c1); } .map .d2 { fill: var(--c2); } .map .d0 { fill: none; stroke: #B9C1CD; stroke-width: 1.2; }
   .kpis { display: grid; grid-template-columns: 1.15fr 1fr 1fr; gap: 6mm; margin-top: 4mm; }
-  .kpi { background: #fff; border-radius: 5mm; padding: 5mm 7mm; }
-  .kpi .big { font-size: 56pt; font-weight: 800; line-height: 1; letter-spacing: -1pt; }
+  .kpi { background: #fff; border-radius: 5mm; padding: 4mm 6mm; display: flex; align-items: center; gap: 5mm; }
+  .kpi .big { flex: none; }
+  .kpi .big { font-size: 46pt; font-weight: 800; line-height: 1; letter-spacing: -1pt; }
   .kpi .big small { font-size: 30pt; color: var(--muted); font-weight: 600; }
-  .kpi p { font-size: 21pt; margin-top: 2mm; color: var(--ink); }
-  .footnote { font-size: 17pt !important; color: var(--muted); margin-top: 4mm; line-height: 1.3; }
+  .kpi p { font-size: 21pt; margin-top: 0; color: var(--ink); }
+  .footnote { font-size: 20pt !important; color: var(--muted); margin-top: 4mm; line-height: 1.3; }
 
   /* ---------- bibliografía ---------- */
   .lit { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6mm; }
@@ -116,19 +117,38 @@
 
   /* ---------- conclusiones ---------- */
   .concl { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-radius: 6mm; overflow: hidden; }
-  .concl > div { padding: 6mm 9mm; color: #fff; }
+  .concl > div { padding: 5mm 8mm; color: #fff; }
   .concl .a { background: var(--c1); } .concl .b { background: var(--c2); }
-  .concl .k { font-size: 17pt; font-weight: 800; letter-spacing: 2pt; text-transform: uppercase; opacity: .9; }
-  .concl .v { font-size: 30pt; font-weight: 800; line-height: 1.15; margin-top: 2mm; }
+  .concl .k { font-size: 20pt; font-weight: 800; letter-spacing: 2pt; text-transform: uppercase; opacity: .9; }
+  .concl .v { font-size: 26pt; font-weight: 800; line-height: 1.15; margin-top: 2mm; }
   .concl p { font-size: 22pt; margin-top: 2mm; }
-  .verdict { background: var(--ink); color: #fff; border-radius: 6mm; padding: 6mm 10mm; margin-top: 4mm; display: grid; grid-template-columns: auto 1fr; gap: 8mm; align-items: center; }
-  .verdict .big { font-size: 38pt; font-weight: 800; line-height: 1.08; }
+  .verdict { background: var(--ink); color: #fff; border-radius: 6mm; padding: 4mm 9mm; margin-top: 3mm; display: grid; grid-template-columns: auto 1fr; gap: 8mm; align-items: center; }
+  .verdict .big { font-size: 32pt; font-weight: 800; line-height: 1.08; }
   .verdict p { font-size: 22pt; opacity: .92; }
 
-  footer { margin-top: 5mm; border-top: .8mm solid var(--line); padding: 4mm 28mm 5mm; display: grid; grid-template-columns: 1fr auto; gap: 10mm; align-items: center; }
-  footer .refs { font-size: 16pt; line-height: 1.4; color: var(--muted); }
+
+  .finds { list-style: none; padding: 0; margin-top: 1mm; }
+  .finds li { font-size: 22pt; line-height: 1.28; margin-bottom: 2.5mm; padding-left: 6mm; position: relative; }
+  .finds li::before { content: ""; position: absolute; left: 0; top: 3.2mm; width: 2.6mm; height: 2.6mm; border-radius: 50%; background: var(--ink); }
+  .crits { display: flex; gap: 6mm; margin-top: 3mm; flex-wrap: wrap; }
+  .crits span { font-size: 22pt; font-weight: 600; display: inline-flex; align-items: center; gap: 3mm; }
+  .bd { font-style: normal; color: #fff; font-weight: 800; font-size: 20pt; border-radius: 2mm; padding: 1mm 3mm; }
+  .b1 { background: var(--c1); } .b2 { background: var(--c2); }
+  .limits { font-size: 21pt !important; margin-top: 4mm; line-height: 1.3; background: #fff; border-left: 2mm solid var(--ink); border-radius: 2mm; padding: 3mm 5mm; }
+  .papers { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5mm; }
+  .paper { background: var(--mist); border-radius: 5mm; padding: 4mm 5mm; display: flex; flex-direction: column; }
+  .paper .yr { font-size: 20pt; font-weight: 600; color: var(--muted); }
+  .paper .nm, .prod .nm { font-size: 27pt; font-weight: 800; line-height: 1.1; margin: 1mm 0 2mm; }
+  .paper p, .prod p { font-size: 21pt; line-height: 1.25; flex: 1; }
+  .paper .rs { font-size: 23pt; font-weight: 800; margin-top: 3mm; padding-top: 2.5mm; border-top: .6mm solid var(--line); }
+  .products { display: grid; grid-template-columns: 1fr 1fr 1.35fr; gap: 5mm; margin-top: 4mm; }
+  .prod { border: .8mm solid var(--line); border-radius: 5mm; padding: 3mm 5mm; }
+  .bridge { background: var(--ink); color: #fff; border-radius: 5mm; padding: 4mm 6mm; font-size: 21pt; line-height: 1.3; }
+  .bridge b { font-size: 22pt; display: block; margin-bottom: 2mm; }
+  footer { margin-top: 3.5mm; border-top: .8mm solid var(--line); padding: 4mm 28mm 4mm; display: grid; grid-template-columns: 1fr auto; gap: 10mm; align-items: center; }
+  footer .refs { font-size: 20pt; line-height: 1.4; color: var(--muted); }
   footer .refs b { color: var(--ink); }
-  footer .qr { display: flex; align-items: center; gap: 5mm; font-size: 18pt; font-weight: 600; text-align: right; }
+  footer .qr { display: flex; align-items: center; gap: 5mm; font-size: 20pt; font-weight: 600; text-align: right; }
   footer .qr img { width: 32mm; height: 32mm; }
 </style>
 </head>
@@ -150,7 +170,7 @@
       <div class="side early">
         <div class="k">Avisar antes</div>
         <div class="v">Más avisos</div>
-        <p>Cualquier corte notifica. Con demasiadas alertas, la gente las ignora: <b>fatiga de alarmas</b>.</p>
+        <p>Cualquier corte notifica; con demasiadas, se ignoran: <b>fatiga de alertas</b>.</p>
       </div>
       <div class="question">
         <div class="k">Pregunta de investigación</div>
@@ -159,17 +179,20 @@
       <div class="side late">
         <div class="k">Avisar después</div>
         <div class="v">Menos ruido</div>
-        <p>Se filtran los cortes breves, pero la falla se <b>detecta más tarde</b> o puede no avisarse.</p>
+        <p>Se filtran cortes breves, pero se <b>detecta más tarde</b>.</p>
       </div>
     </div>
   </section>
 
   <section class="method">
     <div class="panel">
-      <h2><span class="num">2</span>Revisión bibliográfica</h2>
-      <h3>Qué dice el estado del arte</h3>
-      <p>Alertas accionables, objetivos de servicio (SLI/SLO), estrategias de activación, fatiga de alarmas, innovaciones y seguridad de los registros.</p>
-      <div class="chips"><span class="chip">RFC 792 y 5424</span><span class="chip">NIST</span><span class="chip">Google SRE</span><span class="chip">Prometheus</span><span class="chip">Artículos IEEE/ACM</span></div>
+      <h2><span class="num">2</span>Estado del arte</h2>
+      <h3>Qué dice la bibliografía</h3>
+      <ul class="finds">
+        <li><b>Esperar cuesta:</b> gana precisión, pero detecta más tarde y puede no avisar fallas intermitentes.</li>
+        <li><b>Señal &gt; ruido:</b> un aviso solo sirve si alguien tiene que actuar.</li>
+        <li><b>Activar ≠ entregar:</b> Prometheus evalúa reglas; Alertmanager gestiona las notificaciones.</li>
+      </ul>
     </div>
     <div class="panel">
       <h2><span class="num">3</span>Experiencia en GNS3</h2>
@@ -184,360 +207,347 @@
   <text x="344" y="72" class="tip" text-anchor="middle">corte</text>
   <g transform="translate(406,0)"><rect x="0" y="10" width="64" height="44" rx="5" class="dev"/><rect x="7" y="17" width="50" height="30" rx="2" fill="#fff"/><rect x="24" y="54" width="16" height="8" class="dev"/><rect x="12" y="62" width="40" height="5" rx="2" class="dev"/><text x="32" y="92" class="tl" text-anchor="middle">PC2</text><text x="32" y="110" class="tip" text-anchor="middle">192.168.10.2</text></g>
 </svg></div>
-      <p><code>ping -c 30</code> desde PC1, <b>9 ejecuciones</b> con cortes manuales. Criterios aplicados <b>a mano</b> sobre los registros.</p>
-    </div>
-  </section>
-
-  <section>
-    <h2><span class="num">4</span>Los dos criterios comparados</h2>
-    <div class="criteria">
-      <div class="crit k1">
-        <div class="head"><div class="badge">C1</div><b>Avisa en el<br>1.er fallo</b></div>
-        <div class="strip"><i>✓</i><i class="f hit">✗</i><i class="f">✗</i><i class="f">✗</i><i class="f">✗</i><i>✓</i></div>
-      </div>
-      <div class="crit k2">
-        <div class="head"><div class="badge">C2</div><b>Avisa en el 3.er<br>fallo seguido</b></div>
-        <div class="strip"><i>✓</i><i class="f">✗</i><i class="f">✗</i><i class="f hit">✗</i><i class="f">✗</i><i>✓</i></div>
-      </div>
+      <p><code>ping -c 30</code> desde PC1, <b>9 ejecuciones</b> con cortes manuales. Sobre los registros, a mano:</p>
+      <div class="crits"><span><i class="bd b1">C1</i>avisa en el 1.er fallo</span><span><i class="bd b2">C2</i>avisa en el 3.er fallo seguido</span></div>
     </div>
   </section>
 
   <section class="results">
     <div class="results-top">
-      <div><h2 style="margin-bottom:2mm"><span class="num">5</span>Resultados</h2><h3 style="margin:0">Las 240 comprobaciones, ping por ping</h3></div>
+      <div><h2 style="margin-bottom:2mm"><span class="num">4</span>Nuestros resultados</h2><h3 style="margin:0">Las 240 comprobaciones, ping por ping</h3></div>
       <div class="legend"><span><i class="sw" style="background:#D9DEE6"></i>respuesta</span><span><i class="sw" style="background:var(--ink)"></i>timeout</span><span><i class="sw" style="background:var(--c1)"></i>avisa C1</span><span><i class="sw" style="background:var(--c2)"></i>avisa C2</span></div>
     </div>
-    <svg class="map" viewBox="0 0 556.0 126.0" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mapa de las 240 comprobaciones de ping: cada fila es una prueba de 30 pings; en gris oscuro los fallos y marcados los avisos de C1 y C2">
+    <svg class="map" viewBox="0 0 556.0 117.0" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mapa de las 240 comprobaciones de ping: cada fila es una prueba de 30 pings; en gris oscuro los fallos y marcados los avisos de C1 y C2">
 <text x="68.7" y="8" class="axis" text-anchor="middle">1</text>
 <text x="203.7" y="8" class="axis" text-anchor="middle">10</text>
 <text x="353.7" y="8" class="axis" text-anchor="middle">20</text>
 <text x="503.7" y="8" class="axis" text-anchor="middle">30</text>
 <text x="526.0" y="8" class="axis" text-anchor="middle">C1</text><text x="544.0" y="8" class="axis" text-anchor="middle">C2</text>
 <g>
-<text x="0" y="20.7" class="rowlabel">Sin cortes 1</text>
-<rect x="62.0" y="14.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="77.0" y="14.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="92.0" y="14.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="107.0" y="14.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="122.0" y="14.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="137.0" y="14.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="152.0" y="14.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="167.0" y="14.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="182.0" y="14.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="197.0" y="14.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="212.0" y="14.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="227.0" y="14.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="242.0" y="14.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="257.0" y="14.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="272.0" y="14.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="287.0" y="14.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="302.0" y="14.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="317.0" y="14.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="332.0" y="14.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="347.0" y="14.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="362.0" y="14.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="377.0" y="14.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="392.0" y="14.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="407.0" y="14.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="422.0" y="14.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="437.0" y="14.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="452.0" y="14.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="467.0" y="14.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="482.0" y="14.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="497.0" y="14.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<circle cx="526.0" cy="18.3" r="4.2" class="d0"/><circle cx="544.0" cy="18.3" r="4.2" class="d0"/>
+<text x="0" y="19.9" class="rowlabel">Sin cortes 1</text>
+<rect x="62.0" y="14.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="77.0" y="14.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="92.0" y="14.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="107.0" y="14.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="122.0" y="14.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="137.0" y="14.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="152.0" y="14.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="167.0" y="14.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="182.0" y="14.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="197.0" y="14.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="212.0" y="14.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="227.0" y="14.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="242.0" y="14.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="257.0" y="14.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="272.0" y="14.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="287.0" y="14.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="302.0" y="14.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="317.0" y="14.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="332.0" y="14.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="347.0" y="14.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="362.0" y="14.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="377.0" y="14.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="392.0" y="14.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="407.0" y="14.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="422.0" y="14.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="437.0" y="14.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="452.0" y="14.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="467.0" y="14.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="482.0" y="14.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="497.0" y="14.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<circle cx="526.0" cy="17.8" r="4.2" class="d0"/><circle cx="544.0" cy="17.8" r="4.2" class="d0"/>
 </g>
 <g>
-<text x="0" y="32.7" class="rowlabel">Sin cortes 2</text>
-<rect x="62.0" y="26.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="77.0" y="26.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="92.0" y="26.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="107.0" y="26.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="122.0" y="26.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="137.0" y="26.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="152.0" y="26.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="167.0" y="26.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="182.0" y="26.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="197.0" y="26.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="212.0" y="26.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="227.0" y="26.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="242.0" y="26.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="257.0" y="26.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="272.0" y="26.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="287.0" y="26.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="302.0" y="26.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="317.0" y="26.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="332.0" y="26.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="347.0" y="26.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="362.0" y="26.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="377.0" y="26.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="392.0" y="26.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="407.0" y="26.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="422.0" y="26.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="437.0" y="26.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="452.0" y="26.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="467.0" y="26.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="482.0" y="26.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="497.0" y="26.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<circle cx="526.0" cy="30.3" r="4.2" class="d0"/><circle cx="544.0" cy="30.3" r="4.2" class="d0"/>
+<text x="0" y="30.9" class="rowlabel">Sin cortes 2</text>
+<rect x="62.0" y="25.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="77.0" y="25.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="92.0" y="25.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="107.0" y="25.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="122.0" y="25.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="137.0" y="25.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="152.0" y="25.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="167.0" y="25.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="182.0" y="25.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="197.0" y="25.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="212.0" y="25.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="227.0" y="25.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="242.0" y="25.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="257.0" y="25.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="272.0" y="25.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="287.0" y="25.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="302.0" y="25.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="317.0" y="25.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="332.0" y="25.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="347.0" y="25.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="362.0" y="25.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="377.0" y="25.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="392.0" y="25.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="407.0" y="25.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="422.0" y="25.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="437.0" y="25.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="452.0" y="25.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="467.0" y="25.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="482.0" y="25.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="497.0" y="25.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<circle cx="526.0" cy="28.8" r="4.2" class="d0"/><circle cx="544.0" cy="28.8" r="4.2" class="d0"/>
 </g>
 <g>
-<text x="0" y="44.7" class="rowlabel">Sin cortes 3</text>
-<rect x="62.0" y="38.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="77.0" y="38.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="92.0" y="38.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="107.0" y="38.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="122.0" y="38.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="137.0" y="38.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="152.0" y="38.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="167.0" y="38.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="182.0" y="38.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="197.0" y="38.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="212.0" y="38.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="227.0" y="38.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="242.0" y="38.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="257.0" y="38.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="272.0" y="38.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="287.0" y="38.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="302.0" y="38.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="317.0" y="38.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="332.0" y="38.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="347.0" y="38.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="362.0" y="38.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="377.0" y="38.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="392.0" y="38.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="407.0" y="38.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="422.0" y="38.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="437.0" y="38.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="452.0" y="38.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="467.0" y="38.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="482.0" y="38.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="497.0" y="38.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<circle cx="526.0" cy="42.3" r="4.2" class="d0"/><circle cx="544.0" cy="42.3" r="4.2" class="d0"/>
+<text x="0" y="41.9" class="rowlabel">Sin cortes 3</text>
+<rect x="62.0" y="36.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="77.0" y="36.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="92.0" y="36.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="107.0" y="36.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="122.0" y="36.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="137.0" y="36.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="152.0" y="36.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="167.0" y="36.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="182.0" y="36.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="197.0" y="36.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="212.0" y="36.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="227.0" y="36.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="242.0" y="36.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="257.0" y="36.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="272.0" y="36.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="287.0" y="36.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="302.0" y="36.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="317.0" y="36.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="332.0" y="36.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="347.0" y="36.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="362.0" y="36.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="377.0" y="36.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="392.0" y="36.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="407.0" y="36.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="422.0" y="36.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="437.0" y="36.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="452.0" y="36.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="467.0" y="36.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="482.0" y="36.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="497.0" y="36.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<circle cx="526.0" cy="39.8" r="4.2" class="d0"/><circle cx="544.0" cy="39.8" r="4.2" class="d0"/>
 </g>
 <g>
-<text x="0" y="56.7" class="rowlabel">Corte breve 1</text>
-<rect x="62.0" y="50.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="77.0" y="50.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="92.0" y="50.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="107.0" y="50.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="122.0" y="50.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="137.0" y="50.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="152.0" y="50.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="167.0" y="50.0" width="13.4" height="8.6" rx="1.8" class="fail"/>
-<rect x="165.9" y="48.9" width="15.6" height="10.8" rx="2.4" class="m1"/>
-<text x="173.7" y="57.1" class="mk" text-anchor="middle">1</text>
-<rect x="182.0" y="50.0" width="13.4" height="8.6" rx="1.8" class="fail"/>
-<rect x="197.0" y="50.0" width="13.4" height="8.6" rx="1.8" class="fail"/>
-<rect x="195.9" y="48.9" width="15.6" height="10.8" rx="2.4" class="m2"/>
-<text x="203.7" y="57.1" class="mk" text-anchor="middle">3</text>
-<rect x="212.0" y="50.0" width="13.4" height="8.6" rx="1.8" class="fail"/>
-<rect x="227.0" y="50.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="242.0" y="50.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="257.0" y="50.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="272.0" y="50.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="287.0" y="50.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="302.0" y="50.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="317.0" y="50.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="332.0" y="50.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="347.0" y="50.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="362.0" y="50.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="377.0" y="50.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="392.0" y="50.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="407.0" y="50.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="422.0" y="50.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="437.0" y="50.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="452.0" y="50.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="467.0" y="50.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="482.0" y="50.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="497.0" y="50.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<circle cx="526.0" cy="54.3" r="4.2" class="d1"/><circle cx="544.0" cy="54.3" r="4.2" class="d2"/>
+<text x="0" y="52.9" class="rowlabel">Corte breve 1</text>
+<rect x="62.0" y="47.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="77.0" y="47.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="92.0" y="47.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="107.0" y="47.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="122.0" y="47.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="137.0" y="47.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="152.0" y="47.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="167.0" y="47.0" width="13.4" height="7.6" rx="1.8" class="fail"/>
+<rect x="165.9" y="45.9" width="15.6" height="9.8" rx="2.4" class="m1"/>
+<text x="173.7" y="53.2" class="mk" text-anchor="middle">1</text>
+<rect x="182.0" y="47.0" width="13.4" height="7.6" rx="1.8" class="fail"/>
+<rect x="197.0" y="47.0" width="13.4" height="7.6" rx="1.8" class="fail"/>
+<rect x="195.9" y="45.9" width="15.6" height="9.8" rx="2.4" class="m2"/>
+<text x="203.7" y="53.2" class="mk" text-anchor="middle">3</text>
+<rect x="212.0" y="47.0" width="13.4" height="7.6" rx="1.8" class="fail"/>
+<rect x="227.0" y="47.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="242.0" y="47.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="257.0" y="47.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="272.0" y="47.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="287.0" y="47.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="302.0" y="47.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="317.0" y="47.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="332.0" y="47.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="347.0" y="47.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="362.0" y="47.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="377.0" y="47.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="392.0" y="47.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="407.0" y="47.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="422.0" y="47.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="437.0" y="47.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="452.0" y="47.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="467.0" y="47.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="482.0" y="47.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="497.0" y="47.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<circle cx="526.0" cy="50.8" r="4.2" class="d1"/><circle cx="544.0" cy="50.8" r="4.2" class="d2"/>
 </g>
 <g>
-<text x="0" y="68.7" class="rowlabel">Corte breve 2</text>
-<rect x="62.0" y="62.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="77.0" y="62.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="92.0" y="62.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="107.0" y="62.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="122.0" y="62.0" width="13.4" height="8.6" rx="1.8" class="fail"/>
-<rect x="120.9" y="60.9" width="15.6" height="10.8" rx="2.4" class="m1"/>
-<text x="128.7" y="69.1" class="mk" text-anchor="middle">1</text>
-<rect x="137.0" y="62.0" width="13.4" height="8.6" rx="1.8" class="fail"/>
-<rect x="152.0" y="62.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="167.0" y="62.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="182.0" y="62.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="197.0" y="62.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="212.0" y="62.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="227.0" y="62.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="242.0" y="62.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="257.0" y="62.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="272.0" y="62.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="287.0" y="62.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="302.0" y="62.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="317.0" y="62.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="332.0" y="62.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="347.0" y="62.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="362.0" y="62.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="377.0" y="62.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="392.0" y="62.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="407.0" y="62.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="422.0" y="62.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="437.0" y="62.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="452.0" y="62.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="467.0" y="62.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="482.0" y="62.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="497.0" y="62.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<circle cx="526.0" cy="66.3" r="4.2" class="d1"/><circle cx="544.0" cy="66.3" r="4.2" class="d0"/>
+<text x="0" y="63.9" class="rowlabel">Corte breve 2</text>
+<rect x="62.0" y="58.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="77.0" y="58.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="92.0" y="58.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="107.0" y="58.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="122.0" y="58.0" width="13.4" height="7.6" rx="1.8" class="fail"/>
+<rect x="120.9" y="56.9" width="15.6" height="9.8" rx="2.4" class="m1"/>
+<text x="128.7" y="64.2" class="mk" text-anchor="middle">1</text>
+<rect x="137.0" y="58.0" width="13.4" height="7.6" rx="1.8" class="fail"/>
+<rect x="152.0" y="58.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="167.0" y="58.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="182.0" y="58.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="197.0" y="58.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="212.0" y="58.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="227.0" y="58.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="242.0" y="58.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="257.0" y="58.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="272.0" y="58.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="287.0" y="58.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="302.0" y="58.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="317.0" y="58.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="332.0" y="58.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="347.0" y="58.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="362.0" y="58.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="377.0" y="58.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="392.0" y="58.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="407.0" y="58.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="422.0" y="58.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="437.0" y="58.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="452.0" y="58.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="467.0" y="58.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="482.0" y="58.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="497.0" y="58.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<circle cx="526.0" cy="61.8" r="4.2" class="d1"/><circle cx="544.0" cy="61.8" r="4.2" class="d0"/>
 </g>
 <g>
-<text x="0" y="80.7" class="rowlabel">Corte breve 3</text>
-<rect x="62.0" y="74.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="77.0" y="74.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="92.0" y="74.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="107.0" y="74.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="122.0" y="74.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="137.0" y="74.0" width="13.4" height="8.6" rx="1.8" class="fail"/>
-<rect x="135.9" y="72.9" width="15.6" height="10.8" rx="2.4" class="m1"/>
-<text x="143.7" y="81.1" class="mk" text-anchor="middle">1</text>
-<rect x="152.0" y="74.0" width="13.4" height="8.6" rx="1.8" class="fail"/>
-<rect x="167.0" y="74.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="182.0" y="74.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="197.0" y="74.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="212.0" y="74.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="227.0" y="74.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="242.0" y="74.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="257.0" y="74.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="272.0" y="74.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="287.0" y="74.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="302.0" y="74.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="317.0" y="74.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="332.0" y="74.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="347.0" y="74.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="362.0" y="74.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="377.0" y="74.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="392.0" y="74.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="407.0" y="74.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="422.0" y="74.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="437.0" y="74.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="452.0" y="74.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="467.0" y="74.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="482.0" y="74.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="497.0" y="74.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<circle cx="526.0" cy="78.3" r="4.2" class="d1"/><circle cx="544.0" cy="78.3" r="4.2" class="d0"/>
+<text x="0" y="74.9" class="rowlabel">Corte breve 3</text>
+<rect x="62.0" y="69.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="77.0" y="69.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="92.0" y="69.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="107.0" y="69.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="122.0" y="69.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="137.0" y="69.0" width="13.4" height="7.6" rx="1.8" class="fail"/>
+<rect x="135.9" y="67.9" width="15.6" height="9.8" rx="2.4" class="m1"/>
+<text x="143.7" y="75.2" class="mk" text-anchor="middle">1</text>
+<rect x="152.0" y="69.0" width="13.4" height="7.6" rx="1.8" class="fail"/>
+<rect x="167.0" y="69.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="182.0" y="69.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="197.0" y="69.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="212.0" y="69.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="227.0" y="69.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="242.0" y="69.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="257.0" y="69.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="272.0" y="69.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="287.0" y="69.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="302.0" y="69.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="317.0" y="69.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="332.0" y="69.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="347.0" y="69.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="362.0" y="69.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="377.0" y="69.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="392.0" y="69.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="407.0" y="69.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="422.0" y="69.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="437.0" y="69.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="452.0" y="69.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="467.0" y="69.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="482.0" y="69.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="497.0" y="69.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<circle cx="526.0" cy="72.8" r="4.2" class="d1"/><circle cx="544.0" cy="72.8" r="4.2" class="d0"/>
 </g>
 <g>
-<text x="0" y="92.7" class="rowlabel">Sostenido 1</text>
-<rect x="62.0" y="86.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="77.0" y="86.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="92.0" y="86.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="107.0" y="86.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="122.0" y="86.0" width="13.4" height="8.6" rx="1.8" class="fail"/>
-<rect x="120.9" y="84.9" width="15.6" height="10.8" rx="2.4" class="m1"/>
-<text x="128.7" y="93.1" class="mk" text-anchor="middle">1</text>
-<rect x="137.0" y="86.0" width="13.4" height="8.6" rx="1.8" class="fail"/>
-<rect x="152.0" y="86.0" width="13.4" height="8.6" rx="1.8" class="fail"/>
-<rect x="150.9" y="84.9" width="15.6" height="10.8" rx="2.4" class="m2"/>
-<text x="158.7" y="93.1" class="mk" text-anchor="middle">3</text>
-<rect x="167.0" y="86.0" width="13.4" height="8.6" rx="1.8" class="fail"/>
-<rect x="182.0" y="86.0" width="13.4" height="8.6" rx="1.8" class="fail"/>
-<rect x="197.0" y="86.0" width="13.4" height="8.6" rx="1.8" class="fail"/>
-<rect x="212.0" y="86.0" width="13.4" height="8.6" rx="1.8" class="fail"/>
-<rect x="227.0" y="86.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="242.0" y="86.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="257.0" y="86.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="272.0" y="86.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="287.0" y="86.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="302.0" y="86.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="317.0" y="86.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="332.0" y="86.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="347.0" y="86.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="362.0" y="86.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="377.0" y="86.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="392.0" y="86.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="407.0" y="86.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="422.0" y="86.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="437.0" y="86.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="452.0" y="86.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="467.0" y="86.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="482.0" y="86.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="497.0" y="86.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<circle cx="526.0" cy="90.3" r="4.2" class="d1"/><circle cx="544.0" cy="90.3" r="4.2" class="d2"/>
+<text x="0" y="85.9" class="rowlabel">Sostenido 1</text>
+<rect x="62.0" y="80.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="77.0" y="80.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="92.0" y="80.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="107.0" y="80.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="122.0" y="80.0" width="13.4" height="7.6" rx="1.8" class="fail"/>
+<rect x="120.9" y="78.9" width="15.6" height="9.8" rx="2.4" class="m1"/>
+<text x="128.7" y="86.2" class="mk" text-anchor="middle">1</text>
+<rect x="137.0" y="80.0" width="13.4" height="7.6" rx="1.8" class="fail"/>
+<rect x="152.0" y="80.0" width="13.4" height="7.6" rx="1.8" class="fail"/>
+<rect x="150.9" y="78.9" width="15.6" height="9.8" rx="2.4" class="m2"/>
+<text x="158.7" y="86.2" class="mk" text-anchor="middle">3</text>
+<rect x="167.0" y="80.0" width="13.4" height="7.6" rx="1.8" class="fail"/>
+<rect x="182.0" y="80.0" width="13.4" height="7.6" rx="1.8" class="fail"/>
+<rect x="197.0" y="80.0" width="13.4" height="7.6" rx="1.8" class="fail"/>
+<rect x="212.0" y="80.0" width="13.4" height="7.6" rx="1.8" class="fail"/>
+<rect x="227.0" y="80.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="242.0" y="80.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="257.0" y="80.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="272.0" y="80.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="287.0" y="80.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="302.0" y="80.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="317.0" y="80.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="332.0" y="80.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="347.0" y="80.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="362.0" y="80.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="377.0" y="80.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="392.0" y="80.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="407.0" y="80.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="422.0" y="80.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="437.0" y="80.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="452.0" y="80.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="467.0" y="80.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="482.0" y="80.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="497.0" y="80.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<circle cx="526.0" cy="83.8" r="4.2" class="d1"/><circle cx="544.0" cy="83.8" r="4.2" class="d2"/>
 </g>
 <g>
-<text x="0" y="104.7" class="rowlabel">Sostenido 2</text>
-<rect x="62.0" y="98.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="77.0" y="98.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="92.0" y="98.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="107.0" y="98.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="122.0" y="98.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="137.0" y="98.0" width="13.4" height="8.6" rx="1.8" class="fail"/>
-<rect x="135.9" y="96.9" width="15.6" height="10.8" rx="2.4" class="m1"/>
-<text x="143.7" y="105.1" class="mk" text-anchor="middle">1</text>
-<rect x="152.0" y="98.0" width="13.4" height="8.6" rx="1.8" class="fail"/>
-<rect x="167.0" y="98.0" width="13.4" height="8.6" rx="1.8" class="fail"/>
-<rect x="165.9" y="96.9" width="15.6" height="10.8" rx="2.4" class="m2"/>
-<text x="173.7" y="105.1" class="mk" text-anchor="middle">3</text>
-<rect x="182.0" y="98.0" width="13.4" height="8.6" rx="1.8" class="fail"/>
-<rect x="197.0" y="98.0" width="13.4" height="8.6" rx="1.8" class="fail"/>
-<rect x="212.0" y="98.0" width="13.4" height="8.6" rx="1.8" class="fail"/>
-<rect x="227.0" y="98.0" width="13.4" height="8.6" rx="1.8" class="fail"/>
-<rect x="242.0" y="98.0" width="13.4" height="8.6" rx="1.8" class="fail"/>
-<rect x="257.0" y="98.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="272.0" y="98.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="287.0" y="98.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="302.0" y="98.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="317.0" y="98.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="332.0" y="98.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="347.0" y="98.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="362.0" y="98.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="377.0" y="98.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="392.0" y="98.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="407.0" y="98.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="422.0" y="98.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="437.0" y="98.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="452.0" y="98.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="467.0" y="98.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="482.0" y="98.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="497.0" y="98.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<circle cx="526.0" cy="102.3" r="4.2" class="d1"/><circle cx="544.0" cy="102.3" r="4.2" class="d2"/>
+<text x="0" y="96.9" class="rowlabel">Sostenido 2</text>
+<rect x="62.0" y="91.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="77.0" y="91.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="92.0" y="91.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="107.0" y="91.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="122.0" y="91.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="137.0" y="91.0" width="13.4" height="7.6" rx="1.8" class="fail"/>
+<rect x="135.9" y="89.9" width="15.6" height="9.8" rx="2.4" class="m1"/>
+<text x="143.7" y="97.2" class="mk" text-anchor="middle">1</text>
+<rect x="152.0" y="91.0" width="13.4" height="7.6" rx="1.8" class="fail"/>
+<rect x="167.0" y="91.0" width="13.4" height="7.6" rx="1.8" class="fail"/>
+<rect x="165.9" y="89.9" width="15.6" height="9.8" rx="2.4" class="m2"/>
+<text x="173.7" y="97.2" class="mk" text-anchor="middle">3</text>
+<rect x="182.0" y="91.0" width="13.4" height="7.6" rx="1.8" class="fail"/>
+<rect x="197.0" y="91.0" width="13.4" height="7.6" rx="1.8" class="fail"/>
+<rect x="212.0" y="91.0" width="13.4" height="7.6" rx="1.8" class="fail"/>
+<rect x="227.0" y="91.0" width="13.4" height="7.6" rx="1.8" class="fail"/>
+<rect x="242.0" y="91.0" width="13.4" height="7.6" rx="1.8" class="fail"/>
+<rect x="257.0" y="91.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="272.0" y="91.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="287.0" y="91.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="302.0" y="91.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="317.0" y="91.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="332.0" y="91.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="347.0" y="91.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="362.0" y="91.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="377.0" y="91.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="392.0" y="91.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="407.0" y="91.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="422.0" y="91.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="437.0" y="91.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="452.0" y="91.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="467.0" y="91.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="482.0" y="91.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="497.0" y="91.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<circle cx="526.0" cy="94.8" r="4.2" class="d1"/><circle cx="544.0" cy="94.8" r="4.2" class="d2"/>
 </g>
 <g opacity="0.45">
-<text x="0" y="120.7" class="rowlabel">Exploratoria*</text>
-<rect x="62.0" y="114.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="77.0" y="114.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="92.0" y="114.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="107.0" y="114.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="122.0" y="114.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="137.0" y="114.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="152.0" y="114.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="167.0" y="114.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="182.0" y="114.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="197.0" y="114.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="212.0" y="114.0" width="13.4" height="8.6" rx="1.8" class="fail"/>
-<rect x="210.9" y="112.9" width="15.6" height="10.8" rx="2.4" class="m1"/>
-<text x="218.7" y="121.1" class="mk" text-anchor="middle">1</text>
-<rect x="227.0" y="114.0" width="13.4" height="8.6" rx="1.8" class="fail"/>
-<rect x="242.0" y="114.0" width="13.4" height="8.6" rx="1.8" class="fail"/>
-<rect x="240.9" y="112.9" width="15.6" height="10.8" rx="2.4" class="m2"/>
-<text x="248.7" y="121.1" class="mk" text-anchor="middle">3</text>
-<rect x="257.0" y="114.0" width="13.4" height="8.6" rx="1.8" class="fail"/>
-<rect x="272.0" y="114.0" width="13.4" height="8.6" rx="1.8" class="fail"/>
-<rect x="287.0" y="114.0" width="13.4" height="8.6" rx="1.8" class="fail"/>
-<rect x="302.0" y="114.0" width="13.4" height="8.6" rx="1.8" class="fail"/>
-<rect x="317.0" y="114.0" width="13.4" height="8.6" rx="1.8" class="fail"/>
-<rect x="332.0" y="114.0" width="13.4" height="8.6" rx="1.8" class="fail"/>
-<rect x="347.0" y="114.0" width="13.4" height="8.6" rx="1.8" class="fail"/>
-<rect x="362.0" y="114.0" width="13.4" height="8.6" rx="1.8" class="fail"/>
-<rect x="377.0" y="114.0" width="13.4" height="8.6" rx="1.8" class="fail"/>
-<rect x="392.0" y="114.0" width="13.4" height="8.6" rx="1.8" class="fail"/>
-<rect x="407.0" y="114.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="422.0" y="114.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="437.0" y="114.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="452.0" y="114.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="467.0" y="114.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="482.0" y="114.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<rect x="497.0" y="114.0" width="13.4" height="8.6" rx="1.8" class="ok"/>
-<circle cx="526.0" cy="118.3" r="4.2" class="d1"/><circle cx="544.0" cy="118.3" r="4.2" class="d2"/>
+<text x="0" y="111.9" class="rowlabel">Exploratoria*</text>
+<rect x="62.0" y="106.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="77.0" y="106.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="92.0" y="106.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="107.0" y="106.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="122.0" y="106.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="137.0" y="106.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="152.0" y="106.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="167.0" y="106.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="182.0" y="106.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="197.0" y="106.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="212.0" y="106.0" width="13.4" height="7.6" rx="1.8" class="fail"/>
+<rect x="210.9" y="104.9" width="15.6" height="9.8" rx="2.4" class="m1"/>
+<text x="218.7" y="112.2" class="mk" text-anchor="middle">1</text>
+<rect x="227.0" y="106.0" width="13.4" height="7.6" rx="1.8" class="fail"/>
+<rect x="242.0" y="106.0" width="13.4" height="7.6" rx="1.8" class="fail"/>
+<rect x="240.9" y="104.9" width="15.6" height="9.8" rx="2.4" class="m2"/>
+<text x="248.7" y="112.2" class="mk" text-anchor="middle">3</text>
+<rect x="257.0" y="106.0" width="13.4" height="7.6" rx="1.8" class="fail"/>
+<rect x="272.0" y="106.0" width="13.4" height="7.6" rx="1.8" class="fail"/>
+<rect x="287.0" y="106.0" width="13.4" height="7.6" rx="1.8" class="fail"/>
+<rect x="302.0" y="106.0" width="13.4" height="7.6" rx="1.8" class="fail"/>
+<rect x="317.0" y="106.0" width="13.4" height="7.6" rx="1.8" class="fail"/>
+<rect x="332.0" y="106.0" width="13.4" height="7.6" rx="1.8" class="fail"/>
+<rect x="347.0" y="106.0" width="13.4" height="7.6" rx="1.8" class="fail"/>
+<rect x="362.0" y="106.0" width="13.4" height="7.6" rx="1.8" class="fail"/>
+<rect x="377.0" y="106.0" width="13.4" height="7.6" rx="1.8" class="fail"/>
+<rect x="392.0" y="106.0" width="13.4" height="7.6" rx="1.8" class="fail"/>
+<rect x="407.0" y="106.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="422.0" y="106.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="437.0" y="106.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="452.0" y="106.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="467.0" y="106.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="482.0" y="106.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<rect x="497.0" y="106.0" width="13.4" height="7.6" rx="1.8" class="ok"/>
+<circle cx="526.0" cy="109.8" r="4.2" class="d1"/><circle cx="544.0" cy="109.8" r="4.2" class="d2"/>
 </g>
 </svg>
     <div class="kpis">
@@ -545,27 +555,33 @@
       <div class="kpi"><div class="big">+2</div><p>comprobaciones de demora de <span class="t2">C2</span> en los sostenidos.</p></div>
       <div class="kpi"><div class="big">0</div><p>avisos en las 90 comprobaciones sin cortes.</p></div>
     </div>
-    <p class="footnote">* Exploratoria: corte breve que se extendió; fuera de la comparación. Laboratorio chico, solo ICMP y sin marcas de hora: ilustra el comportamiento, no se generaliza a redes reales.</p>
+    <p class="limits"><b>Limitaciones:</b> 8 pruebas, solo ping (ICMP), cortes manuales y registros sin hora. No definimos antes de medir qué corte requería intervención, así que no hablamos de falsas alarmas. No se generaliza a redes reales. *Exploratoria: fuera de la comparación.</p>
   </section>
 
-  <section>
-    <h2><span class="num">6</span>Qué dice la bibliografía</h2>
-    <div class="lit">
-      <div class="card"><div class="big">Esperar cuesta</div><p>Exigir que la falla dure gana precisión, pero detecta más tarde y puede no avisar fallas intermitentes.</p></div>
-      <div class="card"><div class="big">Señal &gt; ruido</div><p>Un aviso solo sirve si alguien tiene que actuar; si no, se ignoran y se pierde uno real.</p></div>
-      <div class="card"><div class="big">También es seguridad</div><p>En los SOC, la fatiga de alertas se combate con automatización, ayuda al analista e IA junto a personas.</p></div>
+  <section class="research">
+    <h2><span class="num">5</span>Investigaciones 2024–2026 y productos reales</h2>
+    <div class="papers">
+      <div class="paper"><div class="yr">2024 · ICSE-SEIP</div><div class="nm">COLA</div><p>Agrupa alertas con estadística y un LLM.</p><div class="rs">F1 0,90–0,93</div></div>
+      <div class="paper"><div class="yr">2024 · Electronics</div><div class="nm">Zha y col.</div><p>Agrupa y sigue la propagación de la falla.</p><div class="rs">F1 0,815 vs 0,540</div></div>
+      <div class="paper"><div class="yr">2025 · ASE</div><div class="nm">AlertGuardian</div><p>Filtra, resume y mejora reglas.</p><div class="rs">−94,8% alertas · 32% aceptado</div></div>
+      <div class="paper"><div class="yr">2026 · preprint</div><div class="nm">Ndichu y col.</div><p>Revisa 87 estudios de IA en SOC.</p><div class="rs">solo 9 en producción</div></div>
+    </div>
+    <div class="products">
+      <div class="prod"><div class="nm">Keep</div><p>Núcleo libre (MIT) con deduplicación y correlación; la IA, solo en versiones pagas.</p></div>
+      <div class="prod"><div class="nm">PagerDuty AIOps</div><p>Servicio pago: agrupa alertas y pausa las que suelen resolverse solas.</p></div>
+      <div class="bridge"><b>Probamos cuándo activar un aviso; ellos, cómo agrupar alertas ya activadas.</b> Cifras de sus autores; productos según su documentación. No los reprodujimos ni instalamos.</div>
     </div>
   </section>
 
   <section>
-    <h2><span class="num">7</span>Conclusiones: no hay un criterio mejor en general</h2>
+    <h2><span class="num">6</span>Conclusiones: no hay un criterio mejor en general</h2>
     <div class="concl">
       <div class="a"><div class="k">C1 · primer fallo</div><div class="v">Conviene si cualquier corte requiere intervención</div><p>y un aviso de más cuesta poco.</p></div>
       <div class="b"><div class="k">C2 · tres fallos</div><div class="v">Conviene si los cortes breves son tolerables</div><p>y el ruido es el problema, aceptando la demora.</p></div>
     </div>
     <div class="verdict">
       <div class="big">La decisión<br>sale del SLO</div>
-      <p>Qué corte requiere intervención se define con un <b>objetivo de servicio</b> antes de medir, sobre <b>registros confiables y con hora sincronizada</b>: sin ellos, ninguna alerta es confiable.</p>
+      <p>Qué corte requiere intervención se define con un <b>objetivo de servicio</b> antes de medir, sobre <b>registros confiables</b>. La IA ayuda a agrupar; la decisión sigue siendo humana.</p>
     </div>
   </section>
 
@@ -574,7 +590,7 @@
 <footer>
   <div class="refs">
     <b>Grupo 07 · GOYS · UTN FR La Plata</b><br>
-    El artículo completo, con las referencias bibliográficas, los registros de las pruebas y las instrucciones de la demo, está en el repositorio.
+    Artículo completo con referencias, registros y demo en el repositorio.
   </div>
   <div class="qr"><span>Artículo, registros<br>y demo en el repositorio</span><img src="qr-repo.png" alt="Código QR al repositorio del grupo"></div>
 </footer>
