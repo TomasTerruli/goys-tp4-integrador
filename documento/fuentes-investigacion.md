@@ -2,7 +2,7 @@
 
 Primera búsqueda de fuentes sobre calidad de alertas, SLI/SLO y fatiga de alarmas. De cada una anotamos los datos en formato IEEE, qué tipo de fuente es y para qué nos sirve en la pregunta de investigación. La numeración es provisional; la final se arma en `documento/referencias.md`.
 
-**Fecha de consulta de los recursos en línea:** 12 de noviembre de 2026.
+**Fecha de consulta de los recursos en línea:** 12 de noviembre de 2026; las fuentes [17] a [22], 15 de noviembre de 2026.
 
 ## 0. Fuentes que quedaron en el artículo
 
@@ -20,17 +20,24 @@ Este archivo es el registro de todas las fuentes que consultamos, con su numerac
 | [8] | [14] | Yu *et al.*, AlertGuardian (2025) |
 | [9] | [8] | RFC 5424, syslog |
 | [10] | [16] | Kent y Souppaya, NIST SP 800-92 (2006) |
+| [11] | [15] | Prometheus, *Alertmanager* |
+| [12] | [17] | Zha *et al.* (2024) |
+| [13] | [18] | Ndichu *et al.* (2026), preprint |
+| [14] | [19] | Documentación de Keep |
+| [15] | [20] | Licencias del repositorio de Keep |
+| [16] | [21] | PagerDuty AIOps |
+| [17] | [22] | PagerDuty AIOps, guía de inicio |
 
-Las fuentes [7], [9], [10], [11] y [15] se consultaron como material de apoyo.
+Las fuentes [7], [9], [10] y [11] se consultaron como material de apoyo.
 
 ## 1. Qué cubre cada fuente
 
 | Requisito de la modalidad B | Fuentes |
 |-----------------------------|---------|
-| Artículo académico | [10], [11], [12], [13], [14] |
-| Documentación técnica oficial | [1], [5], [15] |
+| Artículo académico | [10], [11], [12], [13], [14], [17], [18] |
+| Documentación técnica oficial | [1], [5], [15], [19], [20], [21], [22] |
 | RFC o estándar | [6], [7], [8], [9], [16] |
-| Avances de los últimos tres años | [9] (2023), [12] (2025), [13] (2024), [14] (2025) |
+| Avances de los últimos tres años | [9] (2023), [12] (2025), [13] (2024), [14] (2025), [17] (2024), [18] (2026) |
 | Seguridad y protección de registros | [8], [9], [12], [16] |
 
 | Tema | Fuentes |
@@ -39,9 +46,9 @@ Las fuentes [7], [9], [10], [11] y [15] se consultaron como material de apoyo.
 | Alertas accionables | [2], [4] |
 | SLI / SLO | [3], [4] |
 | Criterios de activación (primer fallo o duración mínima) | [4], [5] |
-| Reducción de ruido en herramientas (agrupación, inhibición, silencios) | [15] |
+| Reducción de ruido en herramientas (agrupación, inhibición, silencios) | [15], [19], [21], [22] |
 | Fatiga de alarmas y tormentas de alertas | [10], [11], [12] |
-| Innovaciones recientes | [13], [14] |
+| Innovaciones recientes | [13], [14], [17], [18] |
 | Conectividad ICMP (base de la simulación) | [6], [7] |
 
 ## 2. Fuentes
@@ -121,6 +128,40 @@ Las fuentes [7], [9], [10], [11] y [15] se consultaron como material de apoyo.
 - **Tipo:** documentación técnica oficial.
 - **Para qué sirve:** explica la parte de las notificaciones. Alertmanager recibe las alertas de Prometheus, elimina duplicados, las agrupa, las envía al destinatario que corresponde y permite silenciarlas o inhibirlas. La inhibición suprime avisos de ciertas alertas si ya hay otras disparadas, y los silencios los apagan durante un tiempo. Lo usamos en la tabla comparativa como ejemplo de reducción de ruido después de que la alerta se dispara.
 
+### Trabajos recientes y productos (pedido del 15/11/2026)
+
+**[17]** J. Zha, X. Shan, J. Lu, J. Zhu y Z. Liu, "Leveraging large language models for efficient alert aggregation in AIOPs," *Electronics*, vol. 13, no. 22, art. 4425, nov. 2024. doi: 10.3390/electronics13224425.
+
+- **Tipo:** artículo de revista (MDPI). Recibido el 9/10/2024, aceptado el 8/11/2024, publicado el 12/11/2024.
+- **Para qué sirve:** segundo trabajo de agrupación de alertas con modelos de lenguaje. Agrupa por tiempo y espacio y después sigue la propagación de la falla con un modelo de lenguaje y un grafo de dependencias. Tres conjuntos de datos (20.123, 33.424 y 46.179 alertas; 21, 42 y 67 tormentas). En el conjunto I: F1 de 0,815 contra 0,540 (FPGrowth), 0,248 (DBSCAN) y 0,468 (AlertStorm). Sin la segunda fase, F1 de 0,521.
+- **Nota:** en el archivo del profesor figura como "Ma *et al.*". En la publicación el primer autor es Junjie Zha.
+
+**[18]** S. Ndichu, T. Ban, S. Ozawa, T. Takahashi y D. Inoue, "AI-driven security alert screening and alert fatigue mitigation in security operations centers: A survey," preprint, arXiv:2605.08316v2 [cs.CR], may. 2026. Enviado a *ACM Computing Surveys*. doi: 10.48550/arXiv.2605.08316.
+
+- **Tipo:** revisión sistemática (PRISMA 2020), preprint.
+- **Para qué sirve:** revisa 87 estudios centrales (de 1.842 registros) sobre IA para filtrar, priorizar y correlacionar alertas en los SOC. Solo 9 muestran resultados en producción y 65 usan conjuntos públicos. La selección la hicieron dos revisores con κ = 0,82.
+- **Nota:** la versión 1 (8/5/2026) tenía seis autores, incluido A. Yamada, y el título terminaba en "A Comprehensive Survey". Citamos la versión 2 (18/5/2026), que es la última.
+
+**[19]** Keep Alerting Ltd., "Deduplication," "Manual correlation rules," "Topology correlation," "AI correlation" y "AI semi automatic correlation," *Keep Documentation*. [En línea]. Disponible: https://docs.keephq.dev/
+
+- **Tipo:** documentación técnica oficial.
+- **Para qué sirve:** funciones de deduplicación (parcial y completa), reglas de correlación manuales, correlación por topología (desactivada por defecto) y correlación con IA. Cada página indica en qué versión está cada función: la correlación con IA está en Keep Cloud y en Enterprise, pero no en la versión libre; la semiautomática es experimental en la versión libre.
+
+**[20]** Keep Alerting Ltd., "LICENSE" y "ee/LICENSE," repositorio *keephq/keep*, GitHub. [En línea]. Disponible: https://github.com/keephq/keep
+
+- **Tipo:** licencias del repositorio oficial.
+- **Para qué sirve:** separa el núcleo libre de lo empresarial. Todo lo que está fuera de `ee/` tiene licencia MIT. Lo que está en `ee/` tiene la licencia Enterprise de Keep, que exige una suscripción para usarlo en producción. Esa carpeta contiene la gestión de identidad (Auth0, Azure AD, Keycloak).
+
+**[21]** PagerDuty, "PagerDuty AIOps," *PagerDuty Knowledge Base*. [En línea]. Disponible: https://docs.pagerduty.com/ai-automation/aiops
+
+- **Tipo:** documentación técnica oficial.
+- **Para qué sirve:** modalidad comercial (complemento para Incident Management; incluido como Signal Intelligence en PD Reliability Platform; cobro por volumen de eventos) y lista de funciones de reducción de ruido y diagnóstico. AIOps se habilita por servicio.
+
+**[22]** PagerDuty, "PagerDuty AIOps quickstart guide," *PagerDuty Knowledge Base*. [En línea]. Disponible: https://docs.pagerduty.com/ai-automation/aiops/pagerduty-aiops-quickstart-guide
+
+- **Tipo:** documentación técnica oficial.
+- **Para qué sirve:** describe cada tipo de agrupación (inteligente, por contenido, unificada, por tiempo y global), la pausa automática de alertas que suelen resolverse solas y la supresión con Event Orchestration.
+
 ## 3. Estado de verificación
 
 Revisiones del 13 y el 14 de noviembre de 2026, contra registros oficiales (RFC Editor, NIST, dblp, actas de conferencias, arXiv y las páginas de los propios autores).
@@ -136,6 +177,11 @@ Revisiones del 13 y el 14 de noviembre de 2026, contra registros oficiales (RFC 
 | [11] | Confirmada | Páginas 162–171 confirmadas en dblp y en el índice de las actas. El DOI lo tomamos de un enlace a la ACM Digital Library: conviene abrir https://doi.org/10.1145/3377813.3381363 una vez. |
 | [14] | Parcialmente verificada | Confirmados: autores, título, publicación en ASE 2025 (IEEE, pp. 1–12) y todas las cifras usadas, en el resumen del preprint. Falta: el DOI de la versión de las actas no aparece en ningún registro consultado; por eso se cita también el preprint con su DOI de arXiv. |
 | [15] | Confirmada | Fuente nueva (documentación oficial de Prometheus). Se agregó porque la tabla comparativa necesita un ejemplo de reducción de ruido en una herramienta real. |
+| [17] | Confirmada | Datos bibliográficos y fechas en la página de MDPI. Cifras de las tablas 2 y 3 tomadas del texto completo publicado. |
+| [18] | Confirmada como preprint | Ficha de arXiv: enviado a *ACM Computing Surveys*, sin referencia de publicación al 15/11/2026. Hay que volver a revisarlo antes de la entrega final. |
+| [19] | Confirmada | Leída en el código fuente de la documentación del repositorio oficial (carpeta `docs/overview/`, commit d3f2561, 15/11/2026), porque el sitio no se pudo abrir desde el entorno de trabajo. El 15/11/2026 se comprobó en el sitio publicado que la página "AI Correlation" coincide: disponible en Keep Cloud y en Enterprise On-Premises, no en Keep Open Source. |
+| [20] | Confirmada | Archivos `LICENSE` y `ee/LICENSE` del repositorio oficial. |
+| [21], [22] | Confirmadas | Páginas oficiales de PagerDuty (support.pagerduty.com redirige a docs.pagerduty.com). |
 
 Antes de entregar:
 - [4], [5], [15]: volver a mirar las páginas, porque son documentos en línea que pueden cambiar.

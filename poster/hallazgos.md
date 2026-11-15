@@ -1,7 +1,7 @@
 # Hallazgos para el póster
 
 > **Responsable:** Pilar Giannelli
-> Cinco hallazgos: tres de la bibliografía y dos del laboratorio. La numeración de las fuentes sigue `documento/referencias.md`. Los resultados del laboratorio salen de `demo/analisis.md`.
+> Cinco hallazgos: tres de la bibliografía y dos del laboratorio, más el bloque de investigaciones recientes y productos. La numeración de las fuentes sigue `documento/referencias.md`. Los resultados del laboratorio salen de `demo/analisis.md`.
 
 ## De la bibliografía
 
@@ -34,8 +34,25 @@ Una revisión de 2025 sobre los centros de operaciones de seguridad identifica c
 En los cortes sostenidos, C2 notificó 2 comprobaciones después que C1. En dos cortes breves de 2 fallos, C2 no notificó.
 *Fuente:* `demo/analisis.md`.
 
+## Investigaciones 2024–2026 y productos reales (bloque nuevo del póster)
+
+Texto corto para el bloque que pidió el profesor. Los resultados son de los autores, no nuestros.
+
+| Trabajo | Qué aporta | Resultado |
+|---------|-----------|-----------|
+| COLA, Kuang *et al.* (2024) [7] | Agrupa alertas con estadística y un modelo de lenguaje que lee los procedimientos operativos | F1 de 0,901 a 0,930 |
+| Zha *et al.* (2024) [12] | Agrupa por tiempo y espacio y sigue la propagación de la falla con un modelo de lenguaje | Mejor F1 que tres métodos clásicos (0,815 en el conjunto I) |
+| AlertGuardian, Yu *et al.* (2025) [8] | Filtra, resume y propone mejoras a las reglas | 94,8% menos alertas; los ingenieros aceptaron el 32% de las mejoras |
+| Ndichu *et al.* (2026, preprint) [13] | Revisión de 87 estudios de IA para filtrar alertas en SOC | Solo 9 muestran resultados en producción |
+
+**Productos:** Keep (núcleo libre con licencia MIT; la correlación con IA solo está en Cloud y Enterprise) [14], [15] y PagerDuty AIOps (servicio pago: agrupación de alertas y pausa de las que suelen resolverse solas) [16], [17]. No los instalamos ni los evaluamos.
+
+**Frase para conectar con la práctica:** nosotros probamos cuándo activar un aviso; estos trabajos y productos estudian cómo relacionar y agrupar alertas que ya se activaron.
+
 ## Para tener en cuenta al armar el póster
 
 - Los hallazgos 4 y 5 son resultados de un laboratorio chico (8 pruebas, solo ping) y no se generalizan a redes reales. Conviene ponerlo en una línea cerca de la tabla.
 - Hasta que el grupo acuerde qué interrupción requiere intervención, no hay que llamar "falsas alarmas" ni "avisos innecesarios" a las notificaciones de los cortes breves.
 - La demora está en comprobaciones, no en segundos, porque los registros no tienen hora.
+- En el bloque de investigaciones, dejar claro que las cifras son de cada trabajo y no se comparan con nuestras 8 pruebas.
+- No poner que implementamos IA ni que probamos Keep o PagerDuty.

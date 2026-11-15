@@ -21,3 +21,18 @@ Listado de trabajo con las fuentes que se citan en el artículo. El relevamiento
 [9] R. Gerhards, "The Syslog Protocol," RFC 5424, mar. 2009. doi: 10.17487/RFC5424.
 
 [10] K. Kent y M. Souppaya, "Guide to Computer Security Log Management," NIST, Gaithersburg, MD, EE. UU., NIST SP 800-92, sep. 2006. doi: 10.6028/NIST.SP.800-92.
+
+[11] Prometheus Authors, "Alertmanager," *Prometheus Documentation*. [En línea]. Disponible: https://prometheus.io/docs/alerting/latest/alertmanager/
+
+[12] J. Zha, X. Shan, J. Lu, J. Zhu y Z. Liu, "Leveraging large language models for efficient alert aggregation in AIOPs," *Electronics*, vol. 13, no. 22, art. 4425, nov. 2024. doi: 10.3390/electronics13224425.
+
+[13] S. Ndichu, T. Ban, S. Ozawa, T. Takahashi y D. Inoue, "AI-driven security alert screening and alert fatigue mitigation in security operations centers: A survey," preprint, arXiv:2605.08316v2 [cs.CR], may. 2026. Enviado a *ACM Computing Surveys*. doi: 10.48550/arXiv.2605.08316.
+
+[14] Keep Alerting Ltd., "Deduplication," "Manual correlation rules," "Topology correlation," "AI correlation" y "AI semi automatic correlation," *Keep Documentation*. [En línea]. Disponible: https://docs.keephq.dev/
+
+[15] Keep Alerting Ltd., "LICENSE" y "ee/LICENSE," repositorio *keephq/keep*, GitHub. [En línea]. Disponible: https://github.com/keephq/keep
+
+[16] PagerDuty, "PagerDuty AIOps," *PagerDuty Knowledge Base*. [En línea]. Disponible: https://docs.pagerduty.com/ai-automation/aiops
+
+[17] PagerDuty, "PagerDuty AIOps quickstart guide," *PagerDuty Knowledge Base*. [En línea]. Disponible: https://docs.pagerduty.com/ai-automation/aiops/pagerduty-aiops-quickstart-guide
+

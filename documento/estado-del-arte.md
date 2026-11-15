@@ -42,7 +42,7 @@ Otra estrategia exige que la condición dure un tiempo mínimo antes de avisar. 
 
 Las estrategias más avanzadas miran la tasa de consumo del presupuesto de error, o sea, qué tan rápido se gasta el margen permitido. La que recomiendan combina varias tasas con una ventana larga y una corta, y solo avisa si las dos superan el umbral. Por ejemplo, para un SLO de 99,9%, un *page* si se consume el 2% del presupuesto en una hora y un ticket si se consume el 10% en tres días. La desventaja es que tiene muchos parámetros para ajustar [4].
 
-Las herramientas actuales usan estas ideas. En Prometheus el trabajo está dividido en dos partes. Por un lado, Prometheus evalúa las reglas de alerta. Una regla sin la cláusula `for` se activa en la primera evaluación en que se cumple la condición. Con `for`, la alerta queda "pendiente" y recién pasa a "disparada" si la condición se mantiene durante ese tiempo [5]. También existe `keep_firing_for`, que deja la alerta activa un rato después de que la condición dejó de cumplirse [5]. Por otro lado, la documentación aclara que estas reglas no son un sistema completo de notificaciones: hace falta otra capa que resuma los avisos, limite cuántos se mandan, permita silenciarlos y tenga en cuenta las dependencias entre alertas. Esa capa es Alertmanager [5].
+Las herramientas actuales usan estas ideas. En Prometheus el trabajo está dividido en dos partes. Por un lado, Prometheus evalúa las reglas de alerta. Una regla sin la cláusula `for` se activa en la primera evaluación en que se cumple la condición. Con `for`, la alerta queda "pendiente" y recién pasa a "disparada" si la condición se mantiene durante ese tiempo [5]. También existe `keep_firing_for`, que deja la alerta activa un rato después de que la condición dejó de cumplirse [5]. La documentación aclara que estas reglas no son un sistema completo de notificaciones: hace falta otra capa que resuma los avisos, limite cuántos se mandan, permita silenciarlos y tenga en cuenta las dependencias entre alertas [5]. Esa capa es Alertmanager, que no evalúa reglas: recibe las alertas que Prometheus ya disparó, elimina duplicados, las agrupa, las manda al destinatario que corresponde y permite silenciarlas o inhibirlas [11].
 
 ### 2.5. Fatiga de alertas
 
@@ -50,7 +50,7 @@ El problema de tener demasiados avisos no es solo de la operación de redes. Tam
 
 ### 2.6. Tabla comparativa
 
-En la tabla separamos dos cosas que a veces se mezclan: cuándo se **activa** una alerta y cómo se **entrega** la notificación. Las primeras cuatro estrategias deciden la activación; las dos últimas trabajan sobre alertas que ya se activaron.
+En la tabla separamos dos cosas que a veces se mezclan: cuándo se **activa** una alerta y cómo se **entrega** la notificación. Las primeras cuatro estrategias deciden la activación y las evalúa Prometheus; las dos últimas trabajan sobre alertas que ya se activaron.
 
 | Estrategia | Qué controla | Cuándo actúa | Efecto en la cantidad de notificaciones | Efecto en la demora | Limitaciones | Fuentes |
 |------------|--------------|--------------|-----------------------------------------|---------------------|--------------|---------|
@@ -59,25 +59,82 @@ En la tabla separamos dos cosas que a veces se mezclan: cuándo se **activa** un
 | Ventana larga | Activación | Cuando el error acumulado en una ventana larga supera el umbral | En el análisis de [4], mejora la precisión frente al umbral inmediato | Aceptable en ese análisis | La alerta sigue activa mucho después de la solución | [4] |
 | Tasa de consumo del presupuesto de error, con varias ventanas | Activación | Cuando el presupuesto se gasta rápido en una ventana larga y en una corta | En el análisis de [4], buena precisión | Más corta cuanto más grave es la falla | Muchos parámetros para ajustar | [4] |
 | Capa de notificaciones (Alertmanager) | Entrega | Después de que la alerta se activó | Puede resumir, limitar y silenciar notificaciones | No cambia cuándo se activa la alerta | Hay que configurar bien las dependencias entre alertas | [5] |
-| Agregación y resumen con IA (COLA, AlertGuardian) | Entrega y, en AlertGuardian, mejora de las reglas | Sobre las alertas ya activadas | En sus evaluaciones redujeron mucho la cantidad de alertas a revisar | No cambia cuándo se activa cada alerta | Probadas con datos de grandes empresas; las propuestas necesitan revisión humana | [7], [8] |
+| Agrupación y resumen con IA (COLA, Zha *et al.*, AlertGuardian) | Entrega y, en AlertGuardian, mejora de las reglas | Sobre las alertas ya activadas | En sus evaluaciones agruparon o redujeron mucho las alertas a revisar | No cambia cuándo se activa cada alerta | Probadas con datos de grandes plataformas en la nube; las propuestas necesitan revisión humana | [7], [8], [12] |
 
 ### 2.7. Limitaciones del estado actual
 
-Las estrategias más completas necesitan un SLO bien definido y bastante tráfico. Con pocos datos, un solo error pesa demasiado: si un servicio recibe 10 solicitudes por hora y falla una, la tasa de error es del 10%, y con un SLO de 99,9% eso dispararía un aviso inmediato [4]. Además, herramientas como Alertmanager se concentran en configurar y disparar reglas, pero no evalúan si esas reglas son buenas [8].
+Las estrategias más completas necesitan un SLO bien definido y bastante tráfico. Con pocos datos, un solo error pesa demasiado: si un servicio recibe 10 solicitudes por hora y falla una, la tasa de error es del 10%, y con un SLO de 99,9% eso dispararía un aviso inmediato [4]. Además, las herramientas permiten configurar y disparar reglas, como Prometheus, y gestionar las notificaciones, como Alertmanager, pero no evalúan si esas reglas son buenas [8].
 
 ---
 
 ## 3. Innovaciones emergentes
 
-Los trabajos de los últimos años ya no buscan solo el umbral correcto. Intentan trabajar sobre las alertas que ya se generaron: agruparlas, resumirlas y mejorar las reglas que las producen.
+Los trabajos de los últimos años ya no buscan solo el umbral correcto. Trabajan sobre las alertas que ya se generaron: las agrupan, las filtran, las resumen y vuelven sobre las reglas que las producen. Analizamos cuatro trabajos de 2024 a 2026 y dos productos que se usan hoy.
 
-**Agregación de alertas con conocimiento operativo (COLA, 2024).** El problema que ataca es concreto: cuando falla un sistema en la nube, se dispara una avalancha de alertas relacionadas que nadie puede revisar una por una [7]. Los métodos que había comparaban el texto de las alertas o usaban estadística. Pero dos alertas relacionadas pueden estar escritas de forma muy distinta, y la estadística anda mal con alertas que aparecen poco. COLA combina las dos cosas: un módulo estadístico resuelve los casos claros y solo los pares dudosos pasan a un modelo de lenguaje, que razona con los procedimientos operativos de cada alerta [7]. En tres conjuntos de datos reales de un proveedor de nube obtuvo valores F1 de entre 0,901 y 0,930, y en esas pruebas superó a los métodos con los que se comparó [7]. Lo nuevo es que, además de los datos de las alertas, usa lo que dejaron escrito los operadores.
+### 3.1. Trabajos recientes
 
-**Gestión del ciclo de vida de las alertas (AlertGuardian, 2025).** Yu *et al.* plantean que la fatiga de alertas viene de manejar mal todo el ciclo de vida de una alerta: cómo se crea la regla, cuándo se dispara, cómo se atiende y cómo se mejora después [8]. AlertGuardian trabaja en tres etapas. Primero filtra el ruido con un modelo de grafos, después resume las alertas con un modelo de lenguaje que busca información relevante y, por último, usa varios agentes para proponer mejoras a las reglas [8]. En cuatro conjuntos de datos reales redujo las alertas en un 94,8% y acertó el 90,5% de los diagnósticos de fallas. Además propuso mejoras para 1.174 reglas, de las cuales los ingenieros aceptaron 375, un 32% [8]. Lo innovador es que no se queda en el momento del aviso: vuelve sobre las reglas para que el problema no se repita. Y ese 32% muestra que la herramienta propone, pero la decisión sigue siendo humana.
+**COLA: agregación de alertas con conocimiento operativo (Kuang *et al.*, 2024).**
 
-**Colaboración entre personas e IA en seguridad (2025).** La revisión de Tariq *et al.* sobre fatiga de alertas en los SOC no busca solo un umbral mejor. Revisa las soluciones de la investigación y de la industria desde tres enfoques: automatización, ayuda al analista y colaboración entre personas e IA [6]. A partir de esa revisión identifica cuatro causas principales de la fatiga, analiza qué les falta a las soluciones actuales y propone líneas de investigación que usan IA [6]. Los autores esperan que esas ideas sirvan también fuera de los SOC, en otros ámbitos de mando y control [6].
+- **Problema.** Cuando falla un sistema en la nube se dispara una avalancha de alertas relacionadas que nadie puede revisar una por una. Los métodos anteriores comparaban el texto de las alertas o usaban estadística, pero dos alertas relacionadas pueden estar escritas de forma muy distinta, y la estadística anda mal con alertas que aparecen poco [7].
+- **Propuesta.** Un módulo estadístico mide la relación en el tiempo y en el espacio entre alertas y resuelve los casos claros. Solo los pares dudosos pasan a un modelo de lenguaje, que razona con los procedimientos operativos (SOP) de cada alerta [7].
+- **Evaluación.** Tres conjuntos de datos del entorno de producción de una plataforma en la nube, con precisión, exhaustividad y F1 [7].
+- **Resultados.** Valores F1 de entre 0,901 y 0,930, por encima de los métodos con los que se comparó [7].
+- **Limitaciones.** Los datos son de una sola plataforma. Además, los autores advierten que tenían pocos ejemplos etiquetados para ajustar el modelo, así que hay riesgo de sobreajuste [7].
+- **Relación con nuestro tema.** Muestra que el ruido no se resuelve solo con el umbral: muchas alertas distintas pueden venir de la misma falla.
 
-Las tres propuestas apuntan a bajar la cantidad de avisos sin perder información. La diferencia con lo que vimos en la sección 2 es que no actúan solo en el momento de decidir si se avisa, sino también antes y después.
+**Agregación en dos fases con modelos de lenguaje (Zha *et al.*, 2024).**
+
+- **Problema.** El mismo que COLA: agrupar las alertas que tienen la misma causa raíz. Los autores señalan que los métodos anteriores ignoran las relaciones causales o fallan con alertas poco frecuentes [12].
+- **Propuesta.** Primero agrupa las alertas cercanas en el tiempo y en el espacio. Después usa un modelo de lenguaje y un grafo de dependencias entre servicios para seguir cómo la falla de un servicio se propaga a otros [12].
+- **Evaluación.** Tres conjuntos de datos con entre 20.123 y 46.179 alertas y entre 21 y 67 tormentas de alertas. Lo compararon con FPGrowth, DBSCAN y AlertStorm usando precisión, exhaustividad y F1 [12].
+- **Resultados.** Tuvo el mejor F1 en los tres conjuntos. En el primero obtuvo 0,815, contra 0,540, 0,248 y 0,468 de los otros métodos. Sin la segunda fase, la del modelo de lenguaje, el F1 bajó a 0,521 [12].
+- **Limitaciones.** Necesita conocer las dependencias entre servicios. Además, solo lo compararon con métodos clásicos, no con otras propuestas basadas en modelos de lenguaje como COLA [12].
+- **Relación con nuestro tema.** Igual que COLA, apunta a que llegue un aviso por falla y no uno por cada síntoma.
+
+**AlertGuardian: gestión del ciclo de vida de las alertas (Yu *et al.*, 2025).**
+
+- **Problema.** Los autores plantean que la fatiga viene de manejar mal todo el ciclo de vida de una alerta: cómo se crea la regla, cuándo se dispara, cómo se atiende y cómo se mejora después. Las herramientas actuales configuran y disparan reglas, pero no evalúan si son buenas [8].
+- **Propuesta.** Tres etapas: filtra el ruido con un modelo de grafos, resume las alertas con un modelo de lenguaje que busca información relevante y usa varios agentes para proponer mejoras a las reglas [8].
+- **Evaluación.** Cuatro conjuntos de datos reales de sistemas en la nube [8].
+- **Resultados.** Redujo las alertas en un 94,8% y acertó el 90,5% de los diagnósticos de fallas. Propuso mejoras para 1.174 reglas y los ingenieros aceptaron 375, un 32% [8].
+- **Limitaciones.** Dos de cada tres propuestas no se aceptaron, así que la herramienta propone pero la decisión sigue siendo humana. Además, la versión de las actas no tiene un DOI que hayamos podido confirmar; los datos los tomamos del preprint [8].
+- **Relación con nuestro tema.** Es el trabajo más cercano a nuestra pregunta, porque vuelve sobre la regla de activación y no solo sobre el aviso.
+
+**Revisión sobre filtrado de alertas y fatiga en los SOC (Ndichu *et al.*, 2026, preprint).**
+
+- **Problema.** Cómo se usa la IA para filtrar, priorizar, correlacionar y dar contexto a las alertas antes de que lleguen al analista [13].
+- **Propuesta.** Una revisión sistemática con el protocolo PRISMA 2020 de trabajos de 2015 a 2026. De 1.842 registros se quedaron con 119, de los cuales 87 son estudios centrales. Los ordenan en cuatro etapas: filtrado, priorización, correlación y apoyo con IA generativa [13].
+- **Evaluación.** Como es una revisión, no prueba un sistema propio. Dos revisores filtraron los títulos y resúmenes, con un acuerdo alto entre ellos (κ = 0,82), y clasificaron cada estudio según el tipo de evidencia: resultados en producción, conjuntos de datos públicos o datos limitados o simulados [13].
+- **Resultados.** La conclusión principal es que los algoritmos avanzaron más que su validación en la operación real: solo 9 de los 87 estudios muestran resultados en producción y 65 usan conjuntos de datos públicos. Casi no se evalúa la resistencia a ataques y solo 7 estudios tratan la colaboración entre personas e IA [13].
+- **Limitaciones.** Es un preprint enviado a *ACM Computing Surveys* y todavía no está publicado. Algunos autores firmaron cinco de los estudios revisados. Ellos mismos reconocen que hay pocos resultados replicados de forma independiente [13].
+- **Relación con nuestro tema.** Advierte que los buenos números de los trabajos anteriores salen de condiciones de prueba concretas, y que la evidencia no alcanza para dejar decisiones críticas solo en manos de la IA [13].
+
+### 3.2. Comparación de los cuatro trabajos
+
+| Trabajo | Tipo | Qué hace | Datos de evaluación | Resultado principal | Limitación principal |
+|---------|------|----------|---------------------|---------------------|----------------------|
+| COLA (2024) [7] | Propuesta, congreso ICSE-SEIP | Agrupa alertas: estadística y modelo de lenguaje con SOP | 3 conjuntos de una plataforma en la nube | F1 de 0,901 a 0,930 | Pocos ejemplos para ajustar el modelo; una sola plataforma |
+| Zha *et al.* (2024) [12] | Propuesta, revista *Electronics* | Agrupa alertas: tiempo, espacio y propagación con modelo de lenguaje | 3 conjuntos, de 20.123 a 46.179 alertas | Mejor F1 que FPGrowth, DBSCAN y AlertStorm | Necesita el grafo de dependencias; no se comparó con otros métodos con modelos de lenguaje |
+| AlertGuardian (2025) [8] | Propuesta, congreso ASE | Filtra, resume y propone mejoras a las reglas | 4 conjuntos de sistemas en la nube | 94,8% menos alertas; 32% de mejoras aceptadas | La mayoría de las mejoras no se aceptó |
+| Ndichu *et al.* (2026) [13] | Revisión sistemática, preprint | Ordena 87 estudios de IA para filtrar alertas en SOC | No aplica: revisa otros trabajos | Solo 9 de 87 con resultados en producción | Sin revisión por pares todavía |
+
+Estos resultados son de los autores, con sus propios datos. No los reprodujimos. Nuestra experiencia es mucho más chica: ocho pruebas con ping en GNS3, donde comparamos dos criterios de activación aplicados a mano sobre los registros. No usamos IA ni agrupamos alertas, así que nuestros números no se pueden comparar con los de la tabla.
+
+### 3.3. Productos que ya aplican estas ideas
+
+Dos productos que se usan hoy reúnen alertas de distintas herramientas y buscan reducir el ruido. Los describimos a partir de su documentación oficial; no los instalamos ni los evaluamos.
+
+| | Keep | PagerDuty AIOps |
+|---|------|-----------------|
+| **Licencia o modalidad** | Núcleo de código abierto con licencia MIT. La carpeta `ee/` tiene una licencia empresarial que exige suscripción para usarla en producción; contiene la gestión de identidad (Auth0, Azure AD, Keycloak) [15]. Algunas funciones solo están en Keep Cloud y en la versión empresarial [14]. | Servicio comercial. Es un complemento pago para los planes de Incident Management; en los planes PD Reliability Platform viene incluido con el nombre Signal Intelligence. Se cobra por volumen de eventos [16]. |
+| **Funciones relacionadas** | Deduplicación parcial, por campos elegidos, y completa. Reglas de correlación manuales que crean incidentes o candidatos a incidente. Correlación por topología de servicios, desactivada por defecto. Correlación con IA y correlación semiautomática con un modelo de lenguaje [14]. | Agrupación inteligente con aprendizaje automático, por contenido, unificada, por tiempo y global entre servicios. Pausa automática de las alertas que suelen resolverse solas. Supresión de eventos con Event Orchestration. Ayudas para el diagnóstico, como origen probable e incidentes relacionados [16], [17]. |
+| **Cómo ayudan** | Juntan en un incidente las alertas que vienen de la misma falla y descartan las repetidas, así llega menos ruido al equipo [14]. | Agrupan las alertas relacionadas en un incidente y demoran la notificación de las que suelen resolverse solas [17]. |
+| **Limitaciones o condiciones** | La correlación con IA no está en la versión libre, y la semiautomática es experimental allí. La semiautomática manda datos a un proveedor de modelos de lenguaje [14]. | Funciona solo en los servicios que tienen AIOps habilitado [16]. La agrupación inteligente aprende de los incidentes anteriores y de las correcciones del equipo, así que mejora con el uso [17]. |
+| **Fuente oficial** | Documentación de Keep [14] y licencia del repositorio [15] | Documentación de PagerDuty [16], [17] |
+
+### 3.4. Relación con nuestra práctica
+
+En nuestra práctica comparamos solo la decisión de activar un aviso. Los trabajos y productos de esta sección van más allá: relacionan alertas entre sí, las agrupan en incidentes y mejoran las reglas. Hay un punto de contacto. La pausa automática de PagerDuty también espera antes de notificar para ver si el problema se resuelve solo, aunque decide con aprendizaje automático sobre el historial [17]. Nuestro criterio C2 hace algo parecido con una regla fija de tres fallos seguidos. Esto es una comparación conceptual: no lo probamos.
 
 ---
 
@@ -106,7 +163,7 @@ El otro lado del problema es la fatiga en los equipos de seguridad, que ya tiene
 
 ### 4.4. Inteligencia artificial con supervisión humana
 
-Las herramientas basadas en modelos de lenguaje muestran buenos resultados, pero fueron evaluadas con datos de grandes empresas [7], [8], y solo una parte de sus propuestas termina siendo aceptada por los ingenieros [8]. La revisión de Tariq *et al.* también propone usar IA, pero analiza las limitaciones de las soluciones que ya existen [6]. Quedan abiertas preguntas sobre cómo validar estas herramientas, cómo adaptarlas a organizaciones más chicas y cómo repartir las decisiones entre la herramienta y las personas.
+Las herramientas basadas en modelos de lenguaje muestran buenos resultados, pero fueron evaluadas con datos de grandes plataformas en la nube [7], [8], [12], y solo una parte de sus propuestas termina siendo aceptada por los ingenieros [8]. La revisión de Ndichu *et al.* encontró que muy pocos estudios muestran resultados en producción y que la evidencia no alcanza para que la IA tome sola decisiones críticas [13]. La revisión de Tariq *et al.* también propone usar IA, pero analiza las limitaciones de las soluciones que ya existen [6]. Quedan abiertas preguntas sobre cómo validar estas herramientas, cómo adaptarlas a organizaciones más chicas y cómo repartir las decisiones entre la herramienta y las personas.
 
 ### 4.5. Oportunidades
 
